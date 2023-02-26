@@ -22,8 +22,8 @@
             <div class="box box-widget widget-user">
 
               <div class="widget-user-header profile ">
-                <h3 class="widget-user-username text-white"><?= _ent(ucwords($user->full_name)); ?></h3>
-                <h5 class="widget-user-desc text-white"><?= _ent($user->username); ?></h5>
+                <h3 class="widget-user-username"><?= _ent(ucwords($user->full_name)); ?></h3>
+                <h5 class="widget-user-desc"><?= _ent($user->username); ?></h5>
               </div>
               <div class="widget-user-image">
                 <img class="img-circle user-avatar" src="<?= BASE_URL . 'uploads/user/' . (!empty($user->avatar) ? $user->avatar : 'default.png'); ?>" alt="User Avatar">

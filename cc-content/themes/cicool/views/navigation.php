@@ -1,10 +1,27 @@
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
+    <div class="container-fluid" style="padding: 5px;">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top"><?= site_name(); ?></a>
+            <!-- <a class="navbar-brand page-scroll" href="#page-top"><?= site_name(); ?></a> -->
+            <?php
+      $logo =  get_option('logo');
+      if ($logo) {
+        $logo = 'uploads/setting/' . get_option('logo');
+      } else {
+        $logo = 'asset/img/icon-wide.png';
+      }
+      if (!is_file(FCPATH . '/' . $logo)) {
+        $logo = 'asset/img/icon-wide.png';
+      }
+      ?>
+
+      <a href="<?= site_url('/'); ?>" class="logo">
+        <span class="logo-lg"><b><img src="<?= base_url($logo) ?>" height="50px"></b></span>
+      </a>
+
+            
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -19,7 +36,7 @@
                 <?php endforeach; ?>
                 <?php if (!app()->aauth->is_loggedin()) : ?>
                     <li>
-                        <a class="page-scroll" href="<?= admin_site_url('/login'); ?>"><i class="fa fa-sign-in"></i> <?= cclang('login'); ?></a>
+                    <a class="page-scroll text-white" href="<?= admin_site_url('/login'); ?>"><button type="submit" class="btn btn-success btn-sm">Login</button></a>
                     </li>
                 <?php else : ?>
                     <li>
@@ -36,7 +53,7 @@
                         </div>
                     </li>
                 <?php endif; ?>
-                <li class="dropdown ">
+                <!-- <li class="dropdown ">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                         <span class="flag-icon <?= get_current_initial_lang(); ?>"></span> <?= get_current_lang(); ?> </a>
                     <ul class="dropdown-menu" role="menu">
@@ -44,7 +61,7 @@
                             <li><a href="<?= site_url('web/switch_lang/' . $lang['folder_name']); ?>"><span class="flag-icon <?= $lang['icon_name']; ?>"></span> <?= $lang['name']; ?></a></li>
                         <?php endforeach; ?>
                     </ul>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>
