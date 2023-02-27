@@ -18,12 +18,12 @@
       </div>
       <h3 class="text-center">Produk dan Layanan</h3><br>
       <div class="row text-center">
-         <?php foreach ($produks as $produk): ?>
+         <?php foreach ($kategoris as $kategori): ?>
             <div class="col-sm-4">
-               <a class="text-black" rel="group" href="<?= BASE_URL . 'uploads/produk/' . $produk->photo; ?>">
-                  <?= $produk->nama_produk ?><br>
-                  <img src="<?= BASE_URL . 'uploads/produk/' . $produk->photo; ?>" class="image-responsive"
-                     alt="image produk" title="photo produk">
+               <a class="text-black" rel="group" href="<?= BASE_URL . 'uploads/kategori_produk/' . $kategori->photo; ?>">
+                  <?= $kategori->nama_kategori ?><br>
+                  <img src="<?= BASE_URL . 'uploads/kategori_produk/' . $kategori->photo; ?>" class="image-responsive"
+                     alt="image kategori" title="photo kategori">
                </a>
             </div>
          <?php endforeach; ?>
