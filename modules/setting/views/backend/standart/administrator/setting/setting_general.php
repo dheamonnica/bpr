@@ -84,6 +84,18 @@
                       </div>
 
                       <div class="col-sm-12">
+                        <label><?= cclang('call_center_1'); ?> <span class="required">*</span></label>
+                        <input type="text" class="form-control" name="call_center_1" id="call_center_1" value="<?= get_option('call_center_1'); ?>">
+                        <small class="info help-block">The call center 1 number.</small>
+                      </div>
+
+                      <div class="col-sm-12">
+                        <label><?= cclang('call_center_2'); ?> <span class="required">*</span></label>
+                        <input type="text" class="form-control" name="call_center_2" id="call_center_2" value="<?= get_option('call_center_2'); ?>">
+                        <small class="info help-block">The call center 2 number.</small>
+                      </div>
+
+                      <div class="col-sm-12">
                         <label><?= cclang('default_landing_page'); ?> <span class="required">*</span></label>
                         <div class="row">
                           <div class="col-md-6 ">

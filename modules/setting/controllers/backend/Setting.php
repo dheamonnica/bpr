@@ -99,6 +99,9 @@ class Setting extends Admin
 			set_option('timezone', $this->input->post('timezone'));
 			set_option('active_theme', $this->input->post('active_theme'));
 			set_option('limit_pagination', $this->input->post('limit_pagination'));
+			set_option('call_center_1', $this->input->post('call_center_1'));
+			set_option('call_center_2', $this->input->post('call_center_2'));
+
 
 			set_option('google_id', $this->input->post('google_id'));
 			set_option('google_secret', $this->input->post('google_secret'));
