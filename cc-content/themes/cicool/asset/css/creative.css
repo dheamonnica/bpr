@@ -27,7 +27,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: white;
+  /* color: white; */
 }
 h1,
 h2,
@@ -94,11 +94,11 @@ aside {
 }
 .navbar-default .nav > li > a:hover,
 .navbar-default .nav > li > a:focus:hover {
-  color: #F05F40;
+  color: #6ff040;
 }
 .navbar-default .nav > li.active > a,
 .navbar-default .nav > li.active > a:focus {
-  color: #F05F40 !important;
+  color: #6ff040 !important;
   background-color: transparent;
 }
 .navbar-default .nav > li.active > a:hover,
@@ -470,7 +470,7 @@ body {
 }
 
 .navbar-default .nav > li > a:hover {
-  color: #EE3939 !important;
+  color: #2d890c !important;
 }
 
 button.navbar-toggle {
@@ -589,4 +589,12 @@ div.phpdebugbar-header, .phpdebugbar-restore-btn {
     /* background: url('https://s3.envato.com/files/218847280/icon-80x80.png') !important;
     background-size: 33px !important;
     background-repeat: no-repeat !important; */
+}
+
+.text-black {
+  color: #000;
+}
+
+.text-center {
+  text-align: center;
 }

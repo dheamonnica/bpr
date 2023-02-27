@@ -1,5 +1,5 @@
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid" style="padding: 5px;">
+    <div class="container-fluid" style="padding: 10px;">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
@@ -30,7 +30,7 @@
                     <?php if (app()->aauth->is_allowed('menu_' . $menu->label)) : 
                         ?>
                         <li>
-                            <a class="page-scroll" href="<?= site_url(replace_admin_url($menu->link)); ?>"><?= $menu->label; ?></a>
+                            <a style="padding: 15px;" class="page-scroll" href="<?= site_url(replace_admin_url($menu->link)); ?>"><?= $menu->label; ?></a>
                         </li>
                     <?php endif ?>
                 <?php endforeach; ?>
