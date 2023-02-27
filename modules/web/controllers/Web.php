@@ -51,10 +51,19 @@ class Web extends Front
             $this->template->build('home-demo');
         } else {
             $this->data['kategoris'] = $this->model_kategori_produk->get();
-            $this->data['produks'] = $this->model_produk->get();
             $this->template->build('home', $this->data);
         }
     }
+
+    public function detail_produk($id)
+	{
+        if (defined('IS_DEMO')) {
+            $this->template->build('home-demo');
+          } else {
+            $this->data['produks'] = $this->model_produk->get_by_kategori($id);
+            $this->template->build('detail_produk', $this->data);
+          }
+	}
 
     public function set_full_group_sql()
     {

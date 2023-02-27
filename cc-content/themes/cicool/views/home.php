@@ -20,7 +20,7 @@
       <div class="row text-center">
          <?php foreach ($kategoris as $kategori): ?>
             <div class="col-sm-4">
-               <a class="text-black" rel="group" href="<?= BASE_URL . 'uploads/kategori_produk/' . $kategori->photo; ?>">
+               <a class="text-black" rel="group" href="<?= BASE_URL . 'web/detail_produk/' . $kategori->id; ?>">
                   <?= $kategori->nama_kategori ?><br>
                   <img src="<?= BASE_URL . 'uploads/kategori_produk/' . $kategori->photo; ?>" class="image-responsive"
                      alt="image kategori" title="photo kategori">

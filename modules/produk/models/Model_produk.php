@@ -115,6 +115,11 @@ class Model_produk extends MY_Model {
         return $this;
     }
 
+    public function get_by_kategori($id) {
+        $query = $this->db->query('SELECT produk.id, produk.nama_produk, produk.photo, produk.deskripsi_produk FROM `produk`  WHERE produk.id_kategori = '.$id);
+        return $query->result();
+    }
+
 }
 
 /* End of file Model_produk.php */
