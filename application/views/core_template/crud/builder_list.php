@@ -47,13 +47,13 @@ jQuery(document).ready(domo);
                         <?php if ($this->input->post('create')) { ?>{php_open_tag} is_allowed('<?= $table_name; ?>_add', function(){{php_close_tag}
                         <a class="btn btn-flat btn-success btn_add_new" id="btn_add_new" title="{php_open_tag_echo} cclang('add_new_button', [cclang('{table_name}')]); {php_close_tag}  (Ctrl+a)" href="{php_open_tag_echo}  site_url('administrator/<?= $table_name; ?>/add'); {php_close_tag}"><i class="fa fa-plus-square-o" ></i> {php_open_tag_echo} cclang('add_new_button', [cclang('{table_name}')]); {php_close_tag}</a>
                         {php_open_tag} }) {php_close_tag}
-                        <?php } ?>{php_open_tag} is_allowed('<?= $table_name; ?>_export', function(){{php_close_tag}
+                        <!-- <?php } ?>{php_open_tag} is_allowed('<?= $table_name; ?>_export', function(){{php_close_tag}
                         <a class="btn btn-flat btn-success" title="{php_open_tag_echo} cclang('export'); {php_close_tag} {php_open_tag_echo} cclang('{table_name}') {php_close_tag} " href="{php_open_tag_echo} site_url('administrator/<?= $table_name; ?>/export?q='.$this->input->get('q').'&f='.$this->input->get('f')); {php_close_tag}"><i class="fa fa-file-excel-o" ></i> {php_open_tag_echo} cclang('export'); {php_close_tag} XLS</a>
-                        {php_open_tag} }) {php_close_tag}
+                        {php_open_tag} }) {php_close_tag} -->
                         <?php if (!DISABLE_PDF_EXPORT): ?>
-                        {php_open_tag} is_allowed('<?= $table_name; ?>_export', function(){{php_close_tag}
+                        <!-- {php_open_tag} is_allowed('<?= $table_name; ?>_export', function(){{php_close_tag}
                         <a class="btn btn-flat btn-success" title="{php_open_tag_echo} cclang('export'); {php_close_tag} pdf {php_open_tag_echo} cclang('{table_name}') {php_close_tag} " href="{php_open_tag_echo} site_url('administrator/<?= $table_name; ?>/export_pdf?q='.$this->input->get('q').'&f='.$this->input->get('f')); {php_close_tag}"><i class="fa fa-file-pdf-o" ></i> {php_open_tag_echo} cclang('export'); {php_close_tag} PDF</a>
-                        {php_open_tag} }) {php_close_tag}
+                        {php_open_tag} }) {php_close_tag} -->
                         <?php endif ?>
                      </div>
                      <div class="widget-user-image">

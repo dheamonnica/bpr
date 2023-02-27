@@ -641,7 +641,7 @@ if (count($fine_upload) > 0 or count($fine_upload_multiple) > 0) : ?>
             },
             function(isConfirm) {
                 if (isConfirm) {
-                    window.location.href = ADMIN_BASE_URL + '/{table_name}';
+                    window.location.href = BASE_URL + '/administrator/{table_name}';
                 }
             });
 
@@ -676,7 +676,7 @@ if (count($fine_upload) > 0 or count($fine_upload_multiple) > 0) : ?>
     $('.loading').show();
 
     $.ajax({
-            url: ADMIN_BASE_URL + '/{table_name}/add_save',
+            url: BASE_URL + '/administrator/{table_name}/add_save',
             type: 'POST',
             dataType: 'json',
             data: data_post,
@@ -794,12 +794,12 @@ if (count($fine_upload) > 0 or count($fine_upload_multiple) > 0) : ?>
         $('#{table_name}_<?= $input; ?>_galery').fineUploader({
             template: 'qq-template-gallery',
             request: {
-                endpoint: ADMIN_BASE_URL + '/{table_name}/upload_<?= $input; ?>_file',
+                endpoint: BASE_URL + '/administrator/{table_name}/upload_<?= $input; ?>_file',
                 params: params
             },
             deleteFile: {
                 enabled: true,
-                endpoint: ADMIN_BASE_URL + '/{table_name}/delete_<?= $input; ?>_file',
+                endpoint: BASE_URL + '/administrator/{table_name}/delete_<?= $input; ?>_file',
             },
             thumbnails: {
                 placeholders: {
@@ -830,7 +830,7 @@ if (count($fine_upload) > 0 or count($fine_upload_multiple) > 0) : ?>
                 },
                 onSubmit: function(id, name) {
                     var uuid = $('#{table_name}_<?= $input; ?>_uuid').val();
-                    $.get(ADMIN_BASE_URL + '/{table_name}/delete_<?= $input; ?>_file/' + uuid);
+                    $.get(BASE_URL + '/administrator/{table_name}/delete_<?= $input; ?>_file/' + uuid);
                 },
                 onDeleteComplete: function(id, xhr, isError) {
                     if (isError == false) {
@@ -874,12 +874,12 @@ if (count($fine_upload) > 0 or count($fine_upload_multiple) > 0) : ?>
         $('#{table_name}_<?= $input; ?>_galery').fineUploader({
             template: 'qq-template-gallery',
             request: {
-                endpoint: ADMIN_BASE_URL + '/{table_name}/upload_<?= $input; ?>_file',
+                endpoint: BASE_URL + '/administrator/{table_name}/upload_<?= $input; ?>_file',
                 params: params
             },
             deleteFile: {
                 enabled: true,
-                endpoint: ADMIN_BASE_URL + '/{table_name}/delete_<?= $input; ?>_file',
+                endpoint: BASE_URL + '/administrator/{table_name}/delete_<?= $input; ?>_file',
             },
             thumbnails: {
                 placeholders: {
@@ -928,7 +928,7 @@ if (count($fine_upload) > 0 or count($fine_upload_multiple) > 0) : ?>
         var val = $(this).val();
         $.LoadingOverlay('show')
         $.ajax({
-                url: ADMIN_BASE_URL + '/<?= $table_name ?>/ajax_<?= $field ?>/' + val,
+                url: BASE_URL + '/administrator/<?= $table_name ?>/ajax_<?= $field ?>/' + val,
                 dataType: 'JSON',
             })
             .done(function(res) {
