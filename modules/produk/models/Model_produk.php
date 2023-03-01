@@ -120,6 +120,11 @@ class Model_produk extends MY_Model {
         return $query->result();
     }
 
+    public function get_by_id($id) {
+        $query = $this->db->query('SELECT produk.id, produk.nama_produk, produk.photo, produk.deskripsi_produk FROM `produk`  WHERE produk.id = '.$id);
+        return $query->result();
+    }
+
 }
 
 /* End of file Model_produk.php */

@@ -62,7 +62,7 @@ class Web extends Front
         if (defined('IS_DEMO')) {
             $this->template->build('home-demo');
           } else {
-            $this->data['produks'] = $this->model_produk->get_by_kategori($id);
+            $this->data['produks'] = $this->model_produk->get_by_id($id);
             $this->template->build('detail_produk', $this->data);
           }
 	}
@@ -72,6 +72,12 @@ class Web extends Front
         $this->data['pekerjaans'] = $this->model_job_deskripsi_pekerjaan->get();
         $this->data['sejarahs'] = $this->model_sejarah_perusahaan->get();
         $this->template->build('profil', $this->data);
+	}
+
+    public function produk()
+	{
+        $this->data['produks'] = $this->model_produk->get();
+        $this->template->build('produk', $this->data);
 	}
 
     public function set_full_group_sql()
