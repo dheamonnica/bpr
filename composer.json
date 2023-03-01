@@ -21,5 +21,10 @@
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
+	},
+	"config": {
+		"allow-plugins": {
+			"compwright/codeigniter-installers": true
+		}
 	}
 }

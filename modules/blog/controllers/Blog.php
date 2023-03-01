@@ -15,6 +15,7 @@ class Blog extends Front
 	{
 		parent::__construct();
         $this->load->model('model_blog');
+        $this->load->model('artikel/model_artikel');
 	}
 
 
@@ -26,12 +27,12 @@ class Blog extends Front
         $filter = $this->input->get('q');
         $field  = $this->input->get('f');
 
-        $this->data['blogs'] = $this->model_blog->get($filter, $field, $this->limit_page, $offset);
-        $this->data['blog_counts'] = $this->model_blog->count_all($filter, $field);
+        $this->data['blogs'] = $this->model_artikel->get($filter, $field, $this->limit_page, $offset);
+        $this->data['blog_counts'] = $this->model_artikel->count_all($filter, $field);
 
         $config = [
             'base_url'     => 'blog/index/',
-            'total_rows'   => $this->model_blog->count_all($filter, $field),
+            'total_rows'   => $this->model_artikel->count_all($filter, $field),
             'per_page'     => $this->limit_page,
             'uri_segment'  => 3,
         ];

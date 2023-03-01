@@ -9,14 +9,16 @@
             <h2 id="homeHeading">Selamat datang di website
                <?= get_option('site_name') ?>
             </h2>
-            <hr>
+            <hr class="hrcenter">
             <p>
                <?= get_option('site_description') ?>
             </p>
             <br>
          </div>
       </div>
-      <h3 class="text-center">Produk dan Layanan</h3><br>
+      <h3 class="text-center">Produk dan Layanan</h3> 
+      <hr class="hrcenter">
+
       <div class="row text-center">
          <?php foreach ($kategoris as $kategori): ?>
             <div class="col-sm-4">

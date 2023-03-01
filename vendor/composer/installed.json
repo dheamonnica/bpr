@@ -967,8 +967,9 @@
                 "maximebf/debugbar": ">=1.0.0"
             },
             "time": "2017-01-19T14:01:33+00:00",
+            "default-branch": true,
             "type": "codeigniter-third-party",
-            "installation-source": "source",
+            "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -987,6 +988,10 @@
                 "debug",
                 "profiler"
             ],
+            "support": {
+                "issues": "https://github.com/tan5en5/codeigniter-debugbar/issues",
+                "source": "https://github.com/tan5en5/codeigniter-debugbar/tree/master"
+            },
             "install-path": "../../application/third_party/codeigniter-debugbar"
         },
         {

@@ -4,7 +4,7 @@
     <?= get_navigation(); ?>
 
     <body>
-        <div class="header-content text-center" style="padding: 10% 0;">
+        <div class="header-content text-center" style="padding: 10% 0 0 0;">
             <div class="header-content-inner">
                 <h2 id="homeHeading">Struktur Organisasi
                     <?= get_option('site_name') ?>

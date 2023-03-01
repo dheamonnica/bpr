@@ -18,6 +18,7 @@ class Web extends Front
 		$this->load->model('kategori_produk/model_kategori_produk');
 		$this->load->model('job_deskripsi_pekerjaan/model_job_deskripsi_pekerjaan');
 		$this->load->model('sejarah_perusahaan/model_sejarah_perusahaan');
+		$this->load->model('dokumentasi/model_dokumentasi');
     }
 
     public function index()
@@ -78,6 +79,12 @@ class Web extends Front
 	{
         $this->data['produks'] = $this->model_produk->get();
         $this->template->build('produk', $this->data);
+	}
+
+    public function dokumentasi()
+	{
+        $this->data['dokumentasis'] = $this->model_dokumentasi->get();
+        $this->template->build('dokumentasi', $this->data);
 	}
 
     public function set_full_group_sql()
