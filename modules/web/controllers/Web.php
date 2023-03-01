@@ -16,6 +16,8 @@ class Web extends Front
         parent::__construct();
 		$this->load->model('produk/model_produk');
 		$this->load->model('kategori_produk/model_kategori_produk');
+		$this->load->model('job_deskripsi_pekerjaan/model_job_deskripsi_pekerjaan');
+		$this->load->model('sejarah_perusahaan/model_sejarah_perusahaan');
     }
 
     public function index()
@@ -63,6 +65,13 @@ class Web extends Front
             $this->data['produks'] = $this->model_produk->get_by_kategori($id);
             $this->template->build('detail_produk', $this->data);
           }
+	}
+
+    public function profil()
+	{
+        $this->data['pekerjaans'] = $this->model_job_deskripsi_pekerjaan->get();
+        $this->data['sejarahs'] = $this->model_sejarah_perusahaan->get();
+        $this->template->build('profil', $this->data);
 	}
 
     public function set_full_group_sql()

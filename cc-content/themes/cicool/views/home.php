@@ -85,6 +85,6 @@
          </div>
 
       </div>
-   </body>
-
    <?= get_footer(); ?>
+
+   </body>
