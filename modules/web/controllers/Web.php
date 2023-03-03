@@ -21,6 +21,7 @@ class Web extends Front
         $this->load->model('dokumentasi/model_dokumentasi');
         $this->load->model('artikel/model_artikel');
         $this->load->model('faq/model_faq');
+        $this->load->model('kritik/model_kritik');
     }
 
     public function index()
@@ -70,6 +71,12 @@ class Web extends Front
     {
         $this->data['faqs'] = $this->model_faq->get();
         $this->template->build('faq', $this->data);
+    }
+
+    public function kritik()
+    {
+        $this->data['kritiks'] = $this->model_kritik->get();
+        $this->template->build('kritik', $this->data);
     }
 
     public function detail_produk($id)
