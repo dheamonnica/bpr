@@ -17,6 +17,21 @@
             </div>
          <?php endforeach; ?>
       </div>
+      <h3 class="text-center" style="padding: 10% 0 0 0;">Kredit</h3> 
+      <hr class="hrcenter">
+
+      <div class="row text-center">
+         <?php foreach ($kredits as $kredit): ?>
+            <div class="col-sm-4">
+               <a class="text-black" rel="group" href="<?= BASE_URL . 'web/detail_kredit/' . $kredit->id; ?>">
+                  <?= $kredit->nama_kredit ?><br>
+                  <img src="<?= BASE_URL . 'uploads/kredit/' . $kredit->photo; ?>" class="image-responsive"
+                     alt="image kredit" title="photo kredit">
+               </a>
+            </div>
+         <?php endforeach; ?>
+      </div>
+      
       <footer style="background-color: #4fb84d; margin-top: 50px;">
          <p class="text-center text-faded" style="padding: 10px;">CALL CENTER
             <?= get_option('call_center_1') ?>/

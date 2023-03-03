@@ -81,7 +81,7 @@ class Pengajuan_kredit extends Admin
 		$this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'trim|required|max_length[250]');
 		
 
-		$this->form_validation->set_rules('pengajuan_kredit_file_ktp_name', 'File Ktp', 'trim|required');
+		// $this->form_validation->set_rules('pengajuan_kredit_file_ktp_name', 'File Ktp', 'trim|required');
 		
 
 		$this->form_validation->set_rules('no_hp', 'No Hp', 'trim|required|max_length[12]');

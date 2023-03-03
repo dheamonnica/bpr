@@ -22,6 +22,7 @@ class Web extends Front
         $this->load->model('artikel/model_artikel');
         $this->load->model('faq/model_faq');
         $this->load->model('kritik/model_kritik');
+        $this->load->model('kredit/model_kredit');
     }
 
     public function index()
@@ -57,6 +58,7 @@ class Web extends Front
             $this->template->build('home-demo');
         } else {
             $this->data['kategoris'] = $this->model_kategori_produk->get();
+            $this->data['kredits'] = $this->model_kredit->get();
             $this->template->build('home', $this->data);
         }
     }
@@ -85,6 +87,17 @@ class Web extends Front
         $this->template->build('detail_produk', $this->data);
     }
 
+    public function detail_kredit($id)
+    {
+        $this->data['kredits'] = $this->model_kredit->get_by_id($id);
+        $this->template->build('detail_kredit', $this->data);
+    }
+
+    public function ajukan_kredit()
+    {
+        $this->template->build('form_kredit');
+    }
+
     public function profil()
     {
         $this->data['pekerjaans'] = $this->model_job_deskripsi_pekerjaan->get();
@@ -95,6 +108,7 @@ class Web extends Front
     public function produk()
     {
         $this->data['produks'] = $this->model_produk->get();
+        $this->data['kredits'] = $this->model_kredit->get();
         $this->template->build('produk', $this->data);
     }
 
