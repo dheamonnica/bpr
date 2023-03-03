@@ -14,11 +14,13 @@ class Web extends Front
     public function __construct()
     {
         parent::__construct();
-		$this->load->model('produk/model_produk');
-		$this->load->model('kategori_produk/model_kategori_produk');
-		$this->load->model('job_deskripsi_pekerjaan/model_job_deskripsi_pekerjaan');
-		$this->load->model('sejarah_perusahaan/model_sejarah_perusahaan');
-		$this->load->model('dokumentasi/model_dokumentasi');
+        $this->load->model('produk/model_produk');
+        $this->load->model('kategori_produk/model_kategori_produk');
+        $this->load->model('job_deskripsi_pekerjaan/model_job_deskripsi_pekerjaan');
+        $this->load->model('sejarah_perusahaan/model_sejarah_perusahaan');
+        $this->load->model('dokumentasi/model_dokumentasi');
+        $this->load->model('artikel/model_artikel');
+        $this->load->model('faq/model_faq');
     }
 
     public function index()
@@ -58,34 +60,42 @@ class Web extends Front
         }
     }
 
+    public function detail_blog($id)
+    {
+        $this->data['blogs'] = $this->model_artikel->get_by_id($id);
+        $this->template->build('detail_blog', $this->data);
+    }
+
+    public function faq()
+    {
+        $this->data['faqs'] = $this->model_faq->get();
+        $this->template->build('faq', $this->data);
+    }
+
     public function detail_produk($id)
-	{
-        if (defined('IS_DEMO')) {
-            $this->template->build('home-demo');
-          } else {
-            $this->data['produks'] = $this->model_produk->get_by_id($id);
-            $this->template->build('detail_produk', $this->data);
-          }
-	}
+    {
+        $this->data['produks'] = $this->model_produk->get_by_kategori($id);
+        $this->template->build('detail_produk', $this->data);
+    }
 
     public function profil()
-	{
+    {
         $this->data['pekerjaans'] = $this->model_job_deskripsi_pekerjaan->get();
         $this->data['sejarahs'] = $this->model_sejarah_perusahaan->get();
         $this->template->build('profil', $this->data);
-	}
+    }
 
     public function produk()
-	{
+    {
         $this->data['produks'] = $this->model_produk->get();
         $this->template->build('produk', $this->data);
-	}
+    }
 
     public function dokumentasi()
-	{
+    {
         $this->data['dokumentasis'] = $this->model_dokumentasi->get();
         $this->template->build('dokumentasi', $this->data);
-	}
+    }
 
     public function set_full_group_sql()
     {
@@ -182,7 +192,7 @@ class Web extends Front
         }
     }
 
-    public function  recurse_copy($src, $dst)
+    public function recurse_copy($src, $dst)
     {
         $dir = opendir($src);
         @mkdir($dst);

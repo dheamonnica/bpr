@@ -67,7 +67,7 @@
                   alt="image artikel" title="photo artikel" width="100%">
               </div>
               <div class="col-lg-9">
-                <a href="<?= site_url('blog/' . $blog->id) ?>">
+                <a href="<?= site_url('web/detail_blog/' . $blog->id) ?>">
                   <h2 class="post-title">
                     <?= substr($blog->judul_artikel, 0, 50) ?>
                   </h2>

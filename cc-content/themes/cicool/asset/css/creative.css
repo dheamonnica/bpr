@@ -978,4 +978,8 @@ div.phpdebugbar-header, .phpdebugbar-restore-btn {
   margin: 0 auto;
   padding-bottom: 20px;
 }
+
+.pt-50 {
+  padding-top: 10vh;
+}
 /*.......... end timeline style ..........*/

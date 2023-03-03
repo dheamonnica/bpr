@@ -114,6 +114,11 @@ class Model_artikel extends MY_Model {
         return $this;
     }
 
+    public function get_by_id($id) {
+        $query = $this->db->query('SELECT * FROM `artikel`  WHERE artikel.id = '.$id);
+        return $query->result();
+    }
+
 }
 
 /* End of file Model_artikel.php */

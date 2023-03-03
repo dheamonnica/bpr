@@ -48,13 +48,10 @@
                     <a style="padding: 15px;" class="page-scroll" href="<?= BASE_URL . 'web/dokumentasi'?>">Dokumentasi</a>
                 </li>
                 <li>
-                    <a style="padding: 15px;" class="page-scroll" href="<?= BASE_URL . 'web/blog'?>">Blog Artikel</a>
+                    <a style="padding: 15px;" class="page-scroll" href="<?= BASE_URL . 'blog'?>">Blog Artikel</a>
                 </li>
                 <li>
                     <a style="padding: 15px;" class="page-scroll" href="<?= BASE_URL . 'web/faq'?>">FAQ</a>
-                </li>
-                <li>
-                    <a style="padding: 15px;" class="page-scroll" href="<?= BASE_URL . 'web/kontak'?>">Kontak Pelayanan</a>
                 </li>
                 <li>
                     <a style="padding: 15px;" class="page-scroll" href="<?= BASE_URL . 'web/kritik'?>">Kritik dan Saran</a>
