@@ -28,7 +28,7 @@
 	</ol>
 </section>
 
-<section class="content">
+<!-- <section class="content">
 	<div class="row">
 		<?php cicool()->eventListen('dashboard_content_top'); ?>
 
@@ -84,10 +84,9 @@
 	</div>
 
 
-	<!-- /.row -->
 	<?php cicool()->eventListen('dashboard_content_bottom'); ?>
 
-</section>
+</section> -->
 <!-- /.content -->
 
 <script>

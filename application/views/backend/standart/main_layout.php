@@ -153,7 +153,7 @@
                   </li>
                 </ul>
               </li>
-              <li class="dropdown ">
+              <!-- <li class="dropdown ">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                   <span class="flag-icon <?= get_current_initial_lang(); ?>"></span> <?= get_current_lang(); ?> </a>
                 <ul class="dropdown-menu" role="menu">
@@ -161,7 +161,7 @@
                     <li><a href="<?= site_url('web/switch_lang/' . $lang['folder_name']); ?>"><span class="flag-icon <?= $lang['icon_name']; ?>"></span> <?= $lang['name']; ?></a></li>
                   <?php endforeach; ?>
                 </ul>
-              </li>
+              </li> -->
             </ul>
           </div>
         <?php endif ?>
@@ -199,13 +199,13 @@
       </div>
     </div>
 
-    <footer class="main-footer">
+    <!-- <footer class="main-footer">
       <div class="pull-right hidden-xs">
         <b><?= cclang('version') ?></b> <?= VERSION ?>
       </div>
       <strong>Copyright &copy; 2016-<?= date('Y'); ?> <a href="#"><?= get_option('site_name'); ?></a>.</strong> All rights
       reserved.
-    </footer>
+    </footer> -->
 
     <div class="control-sidebar-bg"></div>
   </div>
