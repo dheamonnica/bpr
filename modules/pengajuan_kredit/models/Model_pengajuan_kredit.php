@@ -119,6 +119,12 @@ class Model_pengajuan_kredit extends MY_Model {
         return $query->result();
     }
 
+    public function data_dashboard($startdate, $enddate) {
+        $query = $this->db->query("SELECT created_at, SUM(jumlah_pinjaman) as jumlah FROM `pengajuan_kredit` WHERE pengajuan_kredit.status = 'diterima' AND pengajuan_kredit.created_at BETWEEN '". $enddate ."' AND '".$startdate
+        ."'");
+        return $query->result();
+    }
+
 }
 
 /* End of file Model_pengajuan_kredit.php */

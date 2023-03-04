@@ -28,70 +28,134 @@
 	</ol>
 </section>
 
-<!-- <section class="content">
+<section class="content">
 	<div class="row">
-		<?php cicool()->eventListen('dashboard_content_top'); ?>
+		<div class="col-md-12">
+			<div class="box box-warning">
+				<div class="box-body ">
+					<!-- /.widget-user -->
+					<div class="row" style="padding-bottom: 10px">
+						<div class="col-md-8">
+							<div class="col-sm-3 padd-left-0  ">
+								Start Date :
+								<input type="date" class="form-control" name="q" id="filter"
+									placeholder="<?= cclang('filter'); ?>" value="<?= $back; ?>">
+							</div>
+							<div class="col-sm-3 padd-left-0  ">
+								End Date :
+								<input type="date" class="form-control" name="q" id="filter"
+									placeholder="<?= cclang('filter'); ?>" value="<?= $now ?>">
+							</div>
 
-		<?php is_allowed('dashboard_update', function () { ?>
-			<div class="col-md-3 col-sm-6 col-xs-12">
-				<div class="info-box button btn-new-dashboard">
-					<span class="info-box-icon bg-default">
-						<i class="fa fa-plus-circle">
-						</i>
-					</span>
-					<div class="info-box-content">
-						<span class="info-box-text">
-							<center> <?= cclang('create_dashboard') ?></center>
-						</span>
+							<div class="col-sm-1 padd-left-0" style="padding-top: 20px">
+								<button type="submit" class="btn btn-flat" name="sbtn" id="sbtn" value="Apply"
+									title="<?= cclang('filter_search'); ?>">
+									Filter
+								</button>
+							</div>
+							<div class="col-sm-1 padd-left-0" style="padding-top: 20px">
+								<a class="btn btn-default btn-flat" name="reset" id="reset" value="Apply"
+									href="<?= base_url('administrator/pengajuan_kredit'); ?>"
+									title="<?= cclang('reset_filter'); ?>">
+									<i class="fa fa-undo"></i>
+								</a>
+							</div>
+						</div>
+
 					</div>
+					<div id="main" style="width:99%;height: 500px;"></div>
 				</div>
 			</div>
-
-			<div class="col-md-3 col-sm-6 col-xs-12">
-				<div class="info-box button btn-manage-widged" onclick="goUrl('administrator/widged/manage')">
-					<span class="info-box-icon bg-default">
-						<i class="fa fa-cog">
-						</i>
-					</span>
-					<div class="info-box-content">
-						<span class="info-box-text">
-							<center> <?= cclang('manage_widged') ?></center>
-						</span>
-					</div>
-				</div>
-			</div>
-		<?php }) ?>
-
-		<div class="col-md-12 ">
 		</div>
-
-		<?php foreach ($dashboards as $dashboard) : ?>
-			<div class="col-md-3 col-sm-6 col-xs-12">
-				<div class="info-box button" onclick="goUrl('administrator/dashboard/show/<?= $dashboard->slug ?>') ">
-					<span class="info-box-icon bg-aqua">
-						<i class="fa fa-area-chart">
-						</i>
-					</span>
-					<div class="info-box-content">
-						<span class="info-box-text">
-							<center> <?= $dashboard->title ?></center>
-						</span>
-					</div>
-				</div>
-			</div>
-		<?php endforeach; ?>
-
 	</div>
-
-
-	<?php cicool()->eventListen('dashboard_content_bottom'); ?>
-
-</section> -->
+</section>
 <!-- /.content -->
 
 <script>
 	var editMode = false;
 	var dashboardSlug = false;
+</script>
+
+<script src="
+https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js
+"></script>
+<script type="text/javascript">
+	var chartDom = document.getElementById('main');
+	var myChart = echarts.init(chartDom);
+	var option;
+
+	option = {
+		title: {
+			text: 'Jumlah Pengajuan Kredit',
+		},
+		tooltip: {
+			trigger: 'axis'
+		},
+		legend: {
+			data: ['Data Pengajuan Kredit']
+		},
+		toolbox: {
+			show: true,
+			feature: {
+				dataView: { show: true, readOnly: false },
+				magicType: { show: true, type: ['line', 'bar'] },
+				restore: { show: true },
+				saveAsImage: { show: true }
+			}
+		},
+		grid: {
+			top: 110,
+			left: 50,
+			right: 50,
+		},
+		calculable: true,
+		xAxis: [
+			{
+				type: 'category',
+				data: [
+					<?php foreach($datas as $data): ?>
+						'<?= date("d/m/Y",strtotime($data->created_at))	?>'
+					<?php endforeach; ?>
+
+				],
+				axisLabel: {
+					show: true,
+					interval: 0,
+					rotate: 45,
+					fontSize: 10,
+				},
+			}
+		],
+		yAxis: [
+			{
+				type: 'value'
+			}
+		],
+		series: [
+			{
+				name: 'jumlah',
+				type: 'bar',
+				data: [
+					<?php foreach($datas as $data): ?>
+						'<?= $data->jumlah ?>'
+					<?php endforeach; ?>
+				],
+				label: {
+					show: true,
+					position: 'top',
+					color: "black",
+					fontSize: 12,
+					formatter: function (d) {
+						return 'Rp' + d.data ;
+					}
+				},
+
+			},
+		]
+	};
+
+	option && myChart.setOption(option);
+
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.5.0/lodash.min.js"></script>

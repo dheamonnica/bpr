@@ -18,6 +18,7 @@ class Dashboard extends Admin
 		$this->load->model('model_dashboard');
 		$this->load->model('widged/model_widged');
 		$this->load->library('widged/cc_widged');
+        $this->load->model('pengajuan_kredit/model_pengajuan_kredit');
 	}
 
 	public function index()
@@ -25,11 +26,17 @@ class Dashboard extends Admin
 		if (!$this->aauth->is_allowed('dashboard')) {
 			redirect('/', 'refresh');
 		}
-		$dashboards = $this->model_dashboard->get(null, null, $limit = 9999, $offset = 0);
-		$data = [
-			'dashboards' => $dashboards
-		];
-		$this->render('backend/standart/dashboard', $data);
+		// $dashboards = $this->model_dashboard->get(null, null, $limit = 9999, $offset = 0);
+		// $data = [
+		// 	'dashboards' => $dashboards
+		// ];
+		$now = date("Y-m-d");	
+		$back = date('Y-m-d', strtotime('-30 days'));
+		$this->data['now'] = $now;
+		$this->data['back'] = $back;
+        $this->data['datas'] = $this->model_pengajuan_kredit->data_dashboard($now, $back);
+
+		$this->render('backend/standart/dashboard', $this->data);
 	}
 
 	public function edit($slug = null)
