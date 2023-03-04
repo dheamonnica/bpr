@@ -109,6 +109,46 @@ jQuery(document).ready(domo);
                         </div>
                     </div>
                                         
+                    <div class="form-group ">
+                        <label for="content" class="col-sm-2 control-label">Jaminan </label>
+
+                        <div class="col-sm-8">
+                        <span class="detail_group-jaminan"><?= _ent($pengajuan_kredit->jaminan); ?></span>
+                        </div>
+                    </div>
+                                        
+                    <div class="form-group ">
+                        <label for="content" class="col-sm-2 control-label">Created At </label>
+
+                        <div class="col-sm-8">
+                        <span class="detail_group-created_at"><?= _ent($pengajuan_kredit->created_at); ?></span>
+                        </div>
+                    </div>
+                                        
+                    <div class="form-group ">
+                        <label for="content" class="col-sm-2 control-label">Updated At </label>
+
+                        <div class="col-sm-8">
+                        <span class="detail_group-updated_at"><?= _ent($pengajuan_kredit->updated_at); ?></span>
+                        </div>
+                    </div>
+                                        
+                    <div class="form-group ">
+                        <label for="content" class="col-sm-2 control-label">Updated By </label>
+
+                        <div class="col-sm-8">
+                        <span class="detail_group-updated_by"><?= _ent($pengajuan_kredit->updated_by); ?></span>
+                        </div>
+                    </div>
+                                        
+                    <div class="form-group ">
+                        <label for="content" class="col-sm-2 control-label">Status </label>
+
+                        <div class="col-sm-8">
+                        <span class="detail_group-status"><?= _ent($pengajuan_kredit->status); ?></span>
+                        </div>
+                    </div>
+                                        
                     <br>
                     <br>
 

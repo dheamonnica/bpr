@@ -86,6 +86,8 @@ jQuery(document).ready(domo);
                                <option <?= $this->input->get('f') == 'jaminan_kredit' ? 'selected' :''; ?> value="jaminan_kredit">Jaminan Kredit</option>
                             <option <?= $this->input->get('f') == 'lokasi_jaminan' ? 'selected' :''; ?> value="lokasi_jaminan">Lokasi Jaminan</option>
                             <option <?= $this->input->get('f') == 'situasi_jaminan' ? 'selected' :''; ?> value="situasi_jaminan">Situasi Jaminan</option>
+                            <option <?= $this->input->get('f') == 'updated_by' ? 'selected' :''; ?> value="updated_by">Updated By</option>
+                            <option <?= $this->input->get('f') == 'created_at' ? 'selected' :''; ?> value="created_at">Created At</option>
                            </select>
                         </div>
                         <div class="col-sm-1 padd-left-0 ">
@@ -117,6 +119,8 @@ jQuery(document).ready(domo);
                                                     <th data-field="jaminan_kredit"data-sort="1" data-primary-key="0"> <?= cclang('jaminan_kredit') ?></th>
                            <th data-field="lokasi_jaminan"data-sort="1" data-primary-key="0"> <?= cclang('lokasi_jaminan') ?></th>
                            <th data-field="situasi_jaminan"data-sort="1" data-primary-key="0"> <?= cclang('situasi_jaminan') ?></th>
+                           <th data-field="updated_by"data-sort="1" data-primary-key="0"> <?= cclang('updated_by') ?></th>
+                           <th data-field="created_at"data-sort="1" data-primary-key="0"> <?= cclang('created_at') ?></th>
                            <th>Action</th>                        </tr>
                      </thead>
                      <tbody id="tbody_survei_lapangan">
@@ -129,6 +133,8 @@ jQuery(document).ready(domo);
                            <td><span class="list_group-jaminan_kredit"><?= _ent($survei_lapangan->jaminan_kredit); ?></span></td> 
                            <td><span class="list_group-lokasi_jaminan"><?= _ent($survei_lapangan->lokasi_jaminan); ?></span></td> 
                            <td><span class="list_group-situasi_jaminan"><?= _ent($survei_lapangan->situasi_jaminan); ?></span></td> 
+                           <td><span class="list_group-updated_by"><?= _ent($survei_lapangan->updated_by); ?></span></td> 
+                           <td><span class="list_group-created_at"><?= _ent($survei_lapangan->created_at); ?></span></td> 
                            <td width="200">
                             
                                                               <?php is_allowed('survei_lapangan_view', function() use ($survei_lapangan){?>

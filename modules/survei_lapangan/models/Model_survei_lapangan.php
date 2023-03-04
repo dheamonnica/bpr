@@ -5,7 +5,7 @@ class Model_survei_lapangan extends MY_Model {
 
     private $primary_key    = 'id';
     private $table_name     = 'survei_lapangan';
-    public $field_search   = ['jaminan_kredit', 'lokasi_jaminan', 'situasi_jaminan'];
+    public $field_search   = ['jaminan_kredit', 'lokasi_jaminan', 'situasi_jaminan', 'updated_by', 'created_at'];
     public $sort_option = ['id', 'DESC'];
     
     public function __construct()

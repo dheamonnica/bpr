@@ -91,6 +91,16 @@
                         </div>
                     
 
+    <div class="form-group group-updated_by ">
+                            <label for="updated_by" class="col-sm-2 control-label">Updated By                                </label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="updated_by" id="updated_by" placeholder="Updated By" value="<?= set_value('updated_by'); ?>">
+                                <small class="info help-block">
+                                    </small>
+                            </div>
+                        </div>
+                    
+
     
 
     <div class="message"></div>

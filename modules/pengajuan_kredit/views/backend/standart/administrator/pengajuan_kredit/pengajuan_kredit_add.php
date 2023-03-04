@@ -129,6 +129,65 @@
                         </div>
                     
 
+    <div class="form-group group-jaminan ">
+                            <label for="jaminan" class="col-sm-2 control-label">Jaminan                                </label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="jaminan" id="jaminan" placeholder="Jaminan" value="<?= set_value('jaminan'); ?>">
+                                <small class="info help-block">
+                                    </small>
+                            </div>
+                        </div>
+                    
+
+    <div class="form-group group-created_at ">
+                            <label for="created_at" class="col-sm-2 control-label">Created At                                </label>
+                            <div class="col-sm-6">
+                                <div class="input-group date col-sm-8">
+                                    <input type="text" class="form-control pull-right datetimepicker" name="created_at" id="created_at">
+                                </div>
+                                <small class="info help-block">
+                                    </small>
+                            </div>
+                        </div>
+                    
+
+    <div class="form-group group-updated_at ">
+                            <label for="updated_at" class="col-sm-2 control-label">Updated At                                </label>
+                            <div class="col-sm-6">
+                                <div class="input-group date col-sm-8">
+                                    <input type="text" class="form-control pull-right datetimepicker" name="updated_at" id="updated_at">
+                                </div>
+                                <small class="info help-block">
+                                    </small>
+                            </div>
+                        </div>
+                    
+
+    <div class="form-group group-updated_by ">
+                            <label for="updated_by" class="col-sm-2 control-label">Updated By                                </label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="updated_by" id="updated_by" placeholder="Updated By" value="<?= set_value('updated_by'); ?>">
+                                <small class="info help-block">
+                                    </small>
+                            </div>
+                        </div>
+                    
+
+    <div class="form-group group-status ">
+                            <label for="status" class="col-sm-2 control-label">Status                                </label>
+                            <div class="col-sm-8">
+                                <select class="form-control chosen chosen-select" name="status" id="status" data-placeholder="Select Status">
+                                    <option value=""></option>
+                                    <option value="ditolak">Ditolak</option>
+                                    <option value="diterima">Diterima</option>
+                                                                    </select>
+                                <small class="info help-block">
+
+                                    </small>
+                            </div>
+                        </div>
+                    
+
     
 
     <div class="message"></div>

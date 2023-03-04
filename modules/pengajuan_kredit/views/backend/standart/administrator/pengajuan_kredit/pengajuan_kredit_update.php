@@ -144,6 +144,60 @@
                             </div>
                         
                         
+                                                    
+                        
+                        <div class="form-group group-jaminan  ">
+                                <label for="jaminan" class="col-sm-2 control-label">Jaminan                                    </label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="jaminan" id="jaminan" placeholder="" value="<?= set_value('jaminan', $pengajuan_kredit->jaminan); ?>">
+                                    <small class="info help-block">
+                                        </small>
+                                </div>
+                            </div>
+                        
+                        
+                                                    
+                        
+                        <!-- <div class="form-group group-updated_at  ">
+                                <label for="updated_at" class="col-sm-2 control-label">Updated At                                    </label>
+                                <div class="col-sm-6">
+                                    <div class="input-group date col-sm-8">
+                                        <input type="text" class="form-control pull-right datetimepicker" name="updated_at" placeholder="" id="updated_at" value="<?= set_value('updated_at', $pengajuan_kredit->updated_at); ?>">
+                                    </div>
+                                    <small class="info help-block">
+                                        </small>
+                                </div>
+                            </div> -->
+                        
+                        
+                                                    
+                        
+                        <!-- <div class="form-group group-updated_by  ">
+                                <label for="updated_by" class="col-sm-2 control-label">Updated By                                    </label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="updated_by" id="updated_by" placeholder="" value="<?= set_value('updated_by', $pengajuan_kredit->updated_by); ?>">
+                                    <small class="info help-block">
+                                        </small>
+                                </div>
+                            </div>
+                        
+                         -->
+                                                    
+                        
+                        <div class="form-group ">
+                                <label for="status" class="col-sm-2 control-label">Status                                    </label>
+                                <div class="col-sm-8">
+                                    <select class="form-control chosen chosen-select" name="status" id="status" data-placeholder="Select Status">
+                                        <option value=""></option>
+                                        <option <?= $pengajuan_kredit->status == "ditolak" ? 'selected' :''; ?> value="ditolak">Ditolak</option>
+                                        <option <?= $pengajuan_kredit->status == "diterima" ? 'selected' :''; ?> value="diterima">Diterima</option>
+                                                                            </select>
+                                    <small class="info help-block">
+                                        </small>
+                                </div>
+                            </div>
+                        
+                        
                         
                                                     <div class="message"></div>
                                                 <div class="row-fluid col-md-7 container-button-bottom">

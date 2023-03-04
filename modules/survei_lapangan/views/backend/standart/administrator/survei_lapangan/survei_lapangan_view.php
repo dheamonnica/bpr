@@ -75,6 +75,14 @@ jQuery(document).ready(domo);
                         </div>
                     </div>
                                         
+                    <div class="form-group ">
+                        <label for="content" class="col-sm-2 control-label">Updated By </label>
+
+                        <div class="col-sm-8">
+                        <span class="detail_group-updated_by"><?= _ent($survei_lapangan->updated_by); ?></span>
+                        </div>
+                    </div>
+                                        
                     <br>
                     <br>
 

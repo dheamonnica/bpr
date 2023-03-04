@@ -5,7 +5,7 @@ class Model_pengajuan_kredit extends MY_Model {
 
     private $primary_key    = 'id';
     private $table_name     = 'pengajuan_kredit';
-    public $field_search   = ['nama_lengkap', 'file_ktp', 'no_hp', 'jumlah_pinjaman', 'jangka_waktu', 'jenis_pinjaman'];
+    public $field_search   = ['nama_lengkap', 'file_ktp', 'no_hp', 'jumlah_pinjaman', 'jangka_waktu', 'jenis_pinjaman', 'jaminan', 'created_at', 'updated_at', 'updated_by', 'status'];
     public $sort_option = ['id', 'DESC'];
     
     public function __construct()
@@ -112,6 +112,11 @@ class Model_pengajuan_kredit extends MY_Model {
             }
 
         return $this;
+    }
+
+    public function get_by_status() {
+        $query = $this->db->query("SELECT * FROM `pengajuan_kredit` WHERE pengajuan_kredit.status = 'diterima'");
+        return $query->result();
     }
 
 }

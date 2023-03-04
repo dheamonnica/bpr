@@ -100,7 +100,19 @@
                             </div>
                         
                         
+                                                    
                         
+                        <div class="form-group group-updated_by  ">
+                                <label for="updated_by" class="col-sm-2 control-label">Updated By                                    </label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="updated_by" id="updated_by" placeholder="" value="<?= set_value('updated_by', $survei_lapangan->updated_by); ?>">
+                                    <small class="info help-block">
+                                        </small>
+                                </div>
+                            </div>
+                        
+                        
+                                                    
                                                     <div class="message"></div>
                                                 <div class="row-fluid col-md-7 container-button-bottom">
                             <button class="btn btn-flat btn-primary btn_save btn_action" id="btn_save" data-stype='stay' title="<?= cclang('save_button'); ?> (Ctrl+s)">

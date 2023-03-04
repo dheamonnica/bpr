@@ -48,6 +48,29 @@ class Pengajuan_kredit extends Admin
 		$this->template->title('Pengajuan Kredit List');
 		$this->render('backend/standart/administrator/pengajuan_kredit/pengajuan_kredit_list', $this->data);
 	}
+
+	public function laporan($offset = 0)
+	{
+		$this->is_allowed('pengajuan_kredit_list');
+
+		$filter = $this->input->get('q');
+		$field 	= $this->input->get('f');
+
+		$this->data['pengajuan_kredits'] = $this->model_pengajuan_kredit->get_by_status($filter, $field, $this->limit_page, $offset);
+		$this->data['pengajuan_kredit_counts'] = $this->model_pengajuan_kredit->count_all($filter, $field);
+
+		$config = [
+			'base_url'     => 'administrator/pengajuan_kredit/index/',
+			'total_rows'   => $this->data['pengajuan_kredit_counts'],
+			'per_page'     => $this->limit_page,
+			'uri_segment'  => 4,
+		];
+
+		$this->data['pagination'] = $this->pagination($config);
+
+		$this->template->title('Pengajuan Kredit List');
+		$this->render('backend/standart/administrator/pengajuan_kredit/laporan_pengajuan_kredit', $this->data);
+	}
 	
 	/**
 	* Add new pengajuan_kredits
@@ -81,7 +104,7 @@ class Pengajuan_kredit extends Admin
 		$this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'trim|required|max_length[250]');
 		
 
-		// $this->form_validation->set_rules('pengajuan_kredit_file_ktp_name', 'File Ktp', 'trim|required');
+		$this->form_validation->set_rules('pengajuan_kredit_file_ktp_name', 'File Ktp', 'trim|required');
 		
 
 		$this->form_validation->set_rules('no_hp', 'No Hp', 'trim|required|max_length[12]');
@@ -108,6 +131,11 @@ class Pengajuan_kredit extends Admin
 				'jumlah_pinjaman' => $this->input->post('jumlah_pinjaman'),
 				'jangka_waktu' => $this->input->post('jangka_waktu'),
 				'jenis_pinjaman' => $this->input->post('jenis_pinjaman'),
+				'jaminan' => $this->input->post('jaminan'),
+				'created_at' => $this->input->post('created_at'),
+				'updated_at' => $this->input->post('updated_at'),
+				'updated_by' => get_user_data('username'),
+				'status' => $this->input->post('status'),
 			];
 
 			
@@ -240,6 +268,10 @@ class Pengajuan_kredit extends Admin
 				'jumlah_pinjaman' => $this->input->post('jumlah_pinjaman'),
 				'jangka_waktu' => $this->input->post('jangka_waktu'),
 				'jenis_pinjaman' => $this->input->post('jenis_pinjaman'),
+				'jaminan' => $this->input->post('jaminan'),
+				'updated_at' => $this->input->post('updated_at'),
+				'updated_by' => get_user_data('username'),
+				'status' => $this->input->post('status'),
 			];
 
 			

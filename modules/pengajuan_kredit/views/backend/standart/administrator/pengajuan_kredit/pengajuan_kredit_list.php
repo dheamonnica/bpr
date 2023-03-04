@@ -89,6 +89,11 @@ jQuery(document).ready(domo);
                             <option <?= $this->input->get('f') == 'jumlah_pinjaman' ? 'selected' :''; ?> value="jumlah_pinjaman">Jumlah Pinjaman</option>
                             <option <?= $this->input->get('f') == 'jangka_waktu' ? 'selected' :''; ?> value="jangka_waktu">Jangka Waktu</option>
                             <option <?= $this->input->get('f') == 'jenis_pinjaman' ? 'selected' :''; ?> value="jenis_pinjaman">Jenis Pinjaman</option>
+                            <option <?= $this->input->get('f') == 'jaminan' ? 'selected' :''; ?> value="jaminan">Jaminan</option>
+                            <option <?= $this->input->get('f') == 'created_at' ? 'selected' :''; ?> value="created_at">Created At</option>
+                            <option <?= $this->input->get('f') == 'updated_at' ? 'selected' :''; ?> value="updated_at">Updated At</option>
+                            <option <?= $this->input->get('f') == 'updated_by' ? 'selected' :''; ?> value="updated_by">Updated By</option>
+                            <option <?= $this->input->get('f') == 'status' ? 'selected' :''; ?> value="status">Status</option>
                            </select>
                         </div>
                         <div class="col-sm-1 padd-left-0 ">
@@ -123,6 +128,11 @@ jQuery(document).ready(domo);
                            <th data-field="jumlah_pinjaman"data-sort="1" data-primary-key="0"> <?= cclang('jumlah_pinjaman') ?></th>
                            <th data-field="jangka_waktu"data-sort="1" data-primary-key="0"> <?= cclang('jangka_waktu') ?></th>
                            <th data-field="jenis_pinjaman"data-sort="1" data-primary-key="0"> <?= cclang('jenis_pinjaman') ?></th>
+                           <th data-field="jaminan"data-sort="1" data-primary-key="0"> <?= cclang('jaminan') ?></th>
+                           <th data-field="created_at"data-sort="1" data-primary-key="0"> <?= cclang('created_at') ?></th>
+                           <th data-field="updated_at"data-sort="1" data-primary-key="0"> <?= cclang('updated_at') ?></th>
+                           <th data-field="updated_by"data-sort="1" data-primary-key="0"> <?= cclang('updated_by') ?></th>
+                           <th data-field="status"data-sort="1" data-primary-key="0"> <?= cclang('status') ?></th>
                            <th>Action</th>                        </tr>
                      </thead>
                      <tbody id="tbody_pengajuan_kredit">
@@ -151,6 +161,11 @@ jQuery(document).ready(domo);
                            <td><span class="list_group-jumlah_pinjaman"><?= _ent($pengajuan_kredit->jumlah_pinjaman); ?></span></td> 
                            <td><span class="list_group-jangka_waktu"><?= _ent($pengajuan_kredit->jangka_waktu); ?></span></td> 
                            <td><span class="list_group-jenis_pinjaman"><?= _ent($pengajuan_kredit->jenis_pinjaman); ?></span></td> 
+                           <td><span class="list_group-jaminan"><?= _ent($pengajuan_kredit->jaminan); ?></span></td> 
+                           <td><span class="list_group-created_at"><?= _ent($pengajuan_kredit->created_at); ?></span></td> 
+                           <td><span class="list_group-updated_at"><?= _ent($pengajuan_kredit->updated_at); ?></span></td> 
+                           <td><span class="list_group-updated_by"><?= _ent($pengajuan_kredit->updated_by); ?></span></td> 
+                           <td><span class="list_group-status"><?= _ent($pengajuan_kredit->status); ?></span></td> 
                            <td width="200">
                             
                                                               <?php is_allowed('pengajuan_kredit_view', function() use ($pengajuan_kredit){?>
