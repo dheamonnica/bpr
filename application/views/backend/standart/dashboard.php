@@ -33,18 +33,19 @@
 		<div class="col-md-12">
 			<div class="box box-warning">
 				<div class="box-body ">
+				<form name="form_pengajuan_kredit" id="form_pengajuan_kredit" action="<?= base_url('administrator/dashboard/index'); ?>">
 					<!-- /.widget-user -->
 					<div class="row" style="padding-bottom: 10px">
 						<div class="col-md-8">
 							<div class="col-sm-3 padd-left-0  ">
 								Start Date :
-								<input type="date" class="form-control" name="q" id="filter"
-									placeholder="<?= cclang('filter'); ?>" value="<?= $back; ?>">
+								<input type="date" class="form-control" name="startdate" id="filter"
+									placeholder="<?= cclang('filter'); ?>" value="<?= $default_awal; ?>">
 							</div>
 							<div class="col-sm-3 padd-left-0  ">
 								End Date :
-								<input type="date" class="form-control" name="q" id="filter"
-									placeholder="<?= cclang('filter'); ?>" value="<?= $now ?>">
+								<input type="date" class="form-control" name="enddate" id="filter"
+									placeholder="<?= cclang('filter'); ?>" value="<?= $default_akhir ?>">
 							</div>
 
 							<div class="col-sm-1 padd-left-0" style="padding-top: 20px">
@@ -55,7 +56,7 @@
 							</div>
 							<div class="col-sm-1 padd-left-0" style="padding-top: 20px">
 								<a class="btn btn-default btn-flat" name="reset" id="reset" value="Apply"
-									href="<?= base_url('administrator/pengajuan_kredit'); ?>"
+									href="<?= base_url('administrator/dashboard'); ?>"
 									title="<?= cclang('reset_filter'); ?>">
 									<i class="fa fa-undo"></i>
 								</a>
@@ -63,6 +64,7 @@
 						</div>
 
 					</div>
+					</form> 
 					<div id="main" style="width:99%;height: 500px;"></div>
 				</div>
 			</div>
@@ -157,6 +159,7 @@ https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js
 	option && myChart.setOption(option);
 
 </script>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.5.0/lodash.min.js"></script>
 <script src="<?= BASE_ASSET; ?>/gridstack/dist/gridstack.js"></script>

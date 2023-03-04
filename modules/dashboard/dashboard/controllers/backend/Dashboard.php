@@ -30,11 +30,25 @@ class Dashboard extends Admin
 		// $data = [
 		// 	'dashboards' => $dashboards
 		// ];
+		
 		$now = date("Y-m-d");	
 		$back = date('Y-m-d', strtotime('-30 days'));
 		$this->data['now'] = $now;
 		$this->data['back'] = $back;
-        $this->data['datas'] = $this->model_pengajuan_kredit->data_dashboard($now, $back);
+
+		$startdate = $this->input->get('startdate');
+		$enddate = $this->input->get('enddate');
+		if ($startdate === null) {
+			$this->data['default_awal'] = $back;
+		} else {
+			$this->data['default_awal'] = $startdate;
+		}
+		if ($enddate === null) {
+			$this->data['default_akhir'] = $now;
+		} else {
+			$this->data['default_akhir'] = $enddate;
+		}
+		$this->data['datas'] = $this->model_pengajuan_kredit->data_dashboard($this->data['default_awal'], $this->data['default_akhir']);
 
 		$this->render('backend/standart/dashboard', $this->data);
 	}
