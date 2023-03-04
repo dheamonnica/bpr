@@ -31,7 +31,7 @@ class Dashboard extends Admin
 		// 	'dashboards' => $dashboards
 		// ];
 		
-		$now = date("Y-m-d");	
+		$now = date("Y-m-d", strtotime('+1 days'));	
 		$back = date('Y-m-d', strtotime('-30 days'));
 		$this->data['now'] = $now;
 		$this->data['back'] = $back;
