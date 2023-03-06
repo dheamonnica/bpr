@@ -71,6 +71,7 @@
                             <?= get_user_data('full_name'); ?>
                             <span class="caret"></span>
                         </a>
+                        <?php if(get_user_data('is_featured') == 0): ?>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="<?= admin_site_url('/user/profile'); ?>">My Profile</a>
                             <a class="dropdown-item" href="<?= admin_site_url('/dashboard'); ?>">Dashboard</a>
@@ -78,6 +79,14 @@
                             <a class="dropdown-item" href="<?= admin_site_url('/auth/logout'); ?>"><i
                                     class="fa fa-sign-out"></i> Logout</a>
                         </div>
+                        <?php else: ?>
+                            <div class="dropdown-menu">
+                            <a class="dropdown-item" href="<?= admin_site_url('/pengajuan_kredit/user'); ?>">Dashboard</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="<?= admin_site_url('/auth/logout'); ?>"><i
+                                    class="fa fa-sign-out"></i> Logout</a>
+                        </div>
+                        <?php endif; ?>
                     </li>
                 <?php endif; ?>
                 <!-- <li class="dropdown ">

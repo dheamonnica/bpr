@@ -49,6 +49,29 @@ class Pengajuan_kredit extends Admin
 		$this->render('backend/standart/administrator/pengajuan_kredit/pengajuan_kredit_list', $this->data);
 	}
 
+	public function user($offset = 0)
+	{
+		// $this->is_allowed('pengajuan_kredit_list');
+
+		$filter = $this->input->get('q');
+		$field 	= $this->input->get('f');
+
+		$this->data['pengajuan_kredits'] = $this->model_pengajuan_kredit->getUser($filter, $field, $this->limit_page, $offset);
+		$this->data['pengajuan_kredit_counts'] = $this->model_pengajuan_kredit->count_all($filter, $field);
+
+		$config = [
+			'base_url'     => 'administrator/pengajuan_kredit/index/',
+			'total_rows'   => $this->data['pengajuan_kredit_counts'],
+			'per_page'     => $this->limit_page,
+			'uri_segment'  => 4,
+		];
+
+		$this->data['pagination'] = $this->pagination($config);
+
+		$this->template->title('Pengajuan Kredit List');
+		$this->render('backend/standart/administrator/pengajuan_kredit/pengajuan_kredit_list_user', $this->data);
+	}
+
 	public function laporan($offset = 0)
 	{
 		$this->is_allowed('pengajuan_kredit_list');
@@ -91,13 +114,13 @@ class Pengajuan_kredit extends Admin
 	*/
 	public function add_save()
 	{
-		if (!$this->is_allowed('pengajuan_kredit_add', false)) {
-			echo json_encode([
-				'success' => false,
-				'message' => cclang('sorry_you_do_not_have_permission_to_access')
-				]);
-			exit;
-		}
+		// if (!$this->is_allowed('pengajuan_kredit_add', false)) {
+		// 	echo json_encode([
+		// 		'success' => false,
+		// 		'message' => cclang('sorry_you_do_not_have_permission_to_access')
+		// 		]);
+		// 	exit;
+		// }
 		
 		
 
@@ -135,7 +158,8 @@ class Pengajuan_kredit extends Admin
 				'jaminan' => $this->input->post('jaminan'),
 				'created_at' => $this->input->post('created_at'),
 				'updated_at' => $this->input->post('updated_at'),
-				'updated_by' => get_user_data('username'),
+				'updated_by' => '',
+				'username' => get_user_data('username'),
 				'status' => 'draft',
 			];
 
@@ -419,13 +443,13 @@ class Pengajuan_kredit extends Admin
 	*/
 	public function upload_file_ktp_file()
 	{
-		if (!$this->is_allowed('pengajuan_kredit_add', false)) {
-			echo json_encode([
-				'success' => false,
-				'message' => cclang('sorry_you_do_not_have_permission_to_access')
-				]);
-			exit;
-		}
+		// if (!$this->is_allowed('pengajuan_kredit_add', false)) {
+		// 	echo json_encode([
+		// 		'success' => false,
+		// 		'message' => cclang('sorry_you_do_not_have_permission_to_access')
+		// 		]);
+		// 	exit;
+		// }
 
 		$uuid = $this->input->post('qquuid');
 
@@ -441,13 +465,13 @@ class Pengajuan_kredit extends Admin
 	*/
 	public function delete_file_ktp_file($uuid)
 	{
-		if (!$this->is_allowed('pengajuan_kredit_delete', false)) {
-			echo json_encode([
-				'success' => false,
-				'error' => cclang('sorry_you_do_not_have_permission_to_access')
-				]);
-			exit;
-		}
+		// if (!$this->is_allowed('pengajuan_kredit_delete', false)) {
+		// 	echo json_encode([
+		// 		'success' => false,
+		// 		'error' => cclang('sorry_you_do_not_have_permission_to_access')
+		// 		]);
+		// 	exit;
+		// }
 
 		echo $this->delete_file([
             'uuid'              => $uuid, 
@@ -466,13 +490,13 @@ class Pengajuan_kredit extends Admin
 	*/
 	public function get_file_ktp_file($id)
 	{
-		if (!$this->is_allowed('pengajuan_kredit_update', false)) {
-			echo json_encode([
-				'success' => false,
-				'message' => 'Image not loaded, you do not have permission to access'
-				]);
-			exit;
-		}
+		// if (!$this->is_allowed('pengajuan_kredit_update', false)) {
+		// 	echo json_encode([
+		// 		'success' => false,
+		// 		'message' => 'Image not loaded, you do not have permission to access'
+		// 		]);
+		// 	exit;
+		// }
 
 		$pengajuan_kredit = $this->model_pengajuan_kredit->find($id);
 

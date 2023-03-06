@@ -98,6 +98,49 @@ class Model_pengajuan_kredit extends MY_Model {
         return $query->result();
     }
 
+    public function getUser($q = null, $field = null, $limit = 0, $offset = 0, $select_field = [])
+    {
+        $iterasi = 1;
+        $num = count($this->field_search);
+        $where = NULL;
+        $q = $this->scurity($q);
+        $field = $this->scurity($field);
+
+        if (empty($field)) {
+            foreach ($this->field_search as $field) {
+                $f_search = "pengajuan_kredit.".$field;
+                if (strpos($field, '.')) {
+                    $f_search = $field;
+                }
+
+                if ($iterasi == 1) {
+                    $where .= $f_search . " LIKE '%" . $q . "%' ";
+                } else {
+                    $where .= "OR " .$f_search . " LIKE '%" . $q . "%' ";
+                }
+                $iterasi++;
+            }
+
+            $where = '('.$where.')';
+        } else {
+            $where .= "(" . "pengajuan_kredit.".$field . " LIKE '%" . $q . "%' )";
+        }
+
+        if (is_array($select_field) AND count($select_field)) {
+            $this->db->select($select_field);
+        }
+        
+        $this->join_avaiable()->filter_avaiable();
+        $this->db->where('username', get_user_data('username'));
+        $this->db->limit($limit, $offset);
+        
+        $this->sortable();
+        
+        $query = $this->db->get($this->table_name);
+
+        return $query->result();
+    }
+
     public function join_avaiable() {
         
         $this->db->select('pengajuan_kredit.*');

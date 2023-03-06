@@ -98,7 +98,7 @@
   <?= $this->cc_html->getScriptFileTop(); ?>
 </head>
 
-<body class="sidebar-mini skin-black fixed web-body">
+<body class="sidebar-mini skin-black fixed web-body <?= get_user_data('is_featured') == 1 ? 'sidebar-collapse' : '' ?>">
   <div class="wrapper" id="app">
 
     <header class="main-header">
@@ -168,6 +168,7 @@
       </nav>
     </header>
 
+    <?php if(get_user_data('is_featured') == 0): ?>
     <aside class="main-sidebar">
       <section class="sidebar sidebar-admin">
         <ul class="sidebar-menu  sidebar-admin tree" data-widget="tree">
@@ -175,6 +176,7 @@
         </ul>
       </section>
     </aside>
+    <!-- <?php endif; ?> -->
 
     <div class="content-wrapper">
       <?php cicool()->eventListen('backend_content_top'); ?>

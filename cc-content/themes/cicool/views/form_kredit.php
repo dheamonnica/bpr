@@ -260,7 +260,14 @@
                         type: 'POST',
                         dataType: 'json',
                         data: data_post,
+                        success: function (response) {
+                            var x = document.getElementById("snackbar");
+                            x.className = "show";
+                            setTimeout(function () { x.className = x.className.replace("show", ""); }, 9000);
+                        }
                     })
+                    
+                    
                         .done(function (res) {
                             
                             $('form').find('.form-group').removeClass('has-error');
@@ -274,18 +281,16 @@
                                     return;
                                 }
 
-                                $('.message').printMessage({
-                                    message: res.message
-                                });
+                                // $('.message').printMessage({
+                                //     message: res.message
+                                // });
                                 $('.message').fadeIn();
                                 resetForm();
                                 if (typeof id_file_ktp !== 'undefined') {
                                     $('#pengajuan_kredit_file_ktp_galery').fineUploader('deleteFile', id_file_ktp);
                                 }
                                 $('.chosen option').prop('selected', false).trigger('chosen:updated');
-                                var x = document.getElementById("snackbar");
-                            x.className = "show";
-                            setTimeout(function () { x.className = x.className.replace("show", ""); }, 9000);
+                               
 
                             } else {
                                 if (res.errors) {
@@ -303,18 +308,18 @@
                                         }
                                     });
                                 }
-                                $('.message').printMessage({
-                                    message: res.message,
-                                    type: 'warning'
-                                });
+                                // $('.message').printMessage({
+                                //     message: res.message,
+                                //     type: 'warning'
+                                // });
                             }
 
                         })
                         .fail(function () {
-                            $('.message').printMessage({
-                                message: 'Error save data',
-                                type: 'warning'
-                            });
+                            // $('.message').printMessage({
+                            //     message: 'Error save data',
+                            //     type: 'warning'
+                            // });
                         })
                         .always(function () {
                             $('.loading').hide();
@@ -350,9 +355,9 @@
                         allowedExtensions: ["*"],
                         sizeLimit: 0,
                     },
-                    showMessage: function (msg) {
-                        toastr['error'](msg);
-                    },
+                    // showMessage: function (msg) {
+                    //     toastr['error'](msg);
+                    // },
                     callbacks: {
                         onComplete: function (id, name, xhr) {
                             if (xhr.success) {
@@ -360,7 +365,7 @@
                                 $('#pengajuan_kredit_file_ktp_uuid').val(uuid);
                                 $('#pengajuan_kredit_file_ktp_name').val(xhr.uploadName);
                             } else {
-                                toastr['error'](xhr.error);
+                                // toastr['error'](xhr.error);
                             }
                         },
                         onSubmit: function (id, name) {
