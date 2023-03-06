@@ -91,6 +91,7 @@ class Pegawai extends Admin
 			$save_data = [
 				'nama' => $this->input->post('nama'),
 				'jabatan' => $this->input->post('jabatan'),
+				'is_featured' => $this->input->post('is_featured'),
 			];
 
 			
@@ -185,6 +186,7 @@ class Pegawai extends Admin
 			$save_data = [
 				'nama' => $this->input->post('nama'),
 				'jabatan' => $this->input->post('jabatan'),
+				'is_featured' => $this->input->post('is_featured'),
 			];
 
 			

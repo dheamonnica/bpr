@@ -83,6 +83,14 @@ jQuery(document).ready(domo);
                         </div>
                     </div>
                                         
+                    <div class="form-group ">
+                        <label for="content" class="col-sm-2 control-label">Username </label>
+
+                        <div class="col-sm-8">
+                           <?= _ent($survei_lapangan->artikel_judul_artikel); ?>
+                        </div>
+                    </div>
+                                        
                     <br>
                     <br>
 

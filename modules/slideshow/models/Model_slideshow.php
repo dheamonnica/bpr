@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Model_survei_lapangan extends MY_Model {
+class Model_slideshow extends MY_Model {
 
     private $primary_key    = 'id';
-    private $table_name     = 'survei_lapangan';
-    public $field_search   = ['jaminan_kredit', 'lokasi_jaminan', 'situasi_jaminan', 'updated_by', 'created_at', 'username', 'artikel.judul_artikel'];
+    private $table_name     = 'slideshow';
+    public $field_search   = ['photo'];
     public $sort_option = ['id', 'DESC'];
     
     public function __construct()
@@ -30,7 +30,7 @@ class Model_survei_lapangan extends MY_Model {
 
         if (empty($field)) {
             foreach ($this->field_search as $field) {
-                $f_search = "survei_lapangan.".$field;
+                $f_search = "slideshow.".$field;
 
                 if (strpos($field, '.')) {
                     $f_search = $field;
@@ -45,7 +45,7 @@ class Model_survei_lapangan extends MY_Model {
 
             $where = '('.$where.')';
         } else {
-            $where .= "(" . "survei_lapangan.".$field . " LIKE '%" . $q . "%' )";
+            $where .= "(" . "slideshow.".$field . " LIKE '%" . $q . "%' )";
         }
 
         $this->join_avaiable()->filter_avaiable();
@@ -65,7 +65,7 @@ class Model_survei_lapangan extends MY_Model {
 
         if (empty($field)) {
             foreach ($this->field_search as $field) {
-                $f_search = "survei_lapangan.".$field;
+                $f_search = "slideshow.".$field;
                 if (strpos($field, '.')) {
                     $f_search = $field;
                 }
@@ -80,7 +80,7 @@ class Model_survei_lapangan extends MY_Model {
 
             $where = '('.$where.')';
         } else {
-            $where .= "(" . "survei_lapangan.".$field . " LIKE '%" . $q . "%' )";
+            $where .= "(" . "slideshow.".$field . " LIKE '%" . $q . "%' )";
         }
 
         if (is_array($select_field) AND count($select_field)) {
@@ -99,9 +99,8 @@ class Model_survei_lapangan extends MY_Model {
     }
 
     public function join_avaiable() {
-        $this->db->join('artikel', 'artikel.id = survei_lapangan.username', 'LEFT');
         
-        $this->db->select('artikel.judul_artikel,survei_lapangan.*,artikel.judul_artikel as artikel_judul_artikel,artikel.judul_artikel as judul_artikel');
+        $this->db->select('slideshow.*');
 
 
         return $this;
@@ -117,5 +116,5 @@ class Model_survei_lapangan extends MY_Model {
 
 }
 
-/* End of file Model_survei_lapangan.php */
-/* Location: ./application/models/Model_survei_lapangan.php */
+/* End of file Model_slideshow.php */
+/* Location: ./application/models/Model_slideshow.php */

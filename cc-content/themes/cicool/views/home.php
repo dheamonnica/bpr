@@ -4,34 +4,44 @@
    <?= get_navigation(); ?>
 
    <body>
-      <div class="header-content text-center" style="padding: 7% 0;">
-         <div class="header-content-inner">
-            <h2 id="homeHeading">Selamat datang di website
-               <?= get_option('site_name') ?>
-            </h2>
-            <hr class="hrcenter">
-            <p>
-               <?= get_option('site_description') ?>
-            </p>
-            <br>
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+         <!-- Indicators -->
+         <ol class="carousel-indicators">
+            <?php foreach ($sliders as $slideshow): ?>
+               <li data-target="#myCarousel" data-slide-to="<?= $slideshow->id - 1 ?>"
+                  class="<?= $slideshow->id == 1 ? "active" : "" ?>"></li>
+            <?php endforeach ?>
+         </ol>
+         <div class="carousel-inner" role="listbox">
+            <?php foreach ($sliders as $slideshow): ?>
+               <div class="carousel-caption">
+                  <p>Selamat datang di website
+                     <?= get_option('site_name') ?>
+                  </p>
+               </div>
+
+               <div class="<?= $slideshow->id - 1 == 0 ? "item active" : "item" ?>">
+                  <img class="bg-slide" src="<?= BASE_URL . 'uploads/slider/' . $slideshow->slideshow; ?>">
+               </div>
+            <?php endforeach ?>
          </div>
       </div>
-      <h3 class="text-center">Produk dan Layanan</h3> 
+      <h3 class="text-center">Produk dan Layanan</h3>
       <hr class="hrcenter">
 
-      <div class="row text-center"  style="padding: 3% 0;">
-         <?php foreach ($kategoris as $kategori): ?>
+      <div class="row text-center" style="padding: 3% 0;">
+         <?php foreach ($produks as $produk): ?>
             <div class="col-sm-4">
-               <a class="text-black" rel="group" href="<?= BASE_URL . 'web/detail_produk/' . $kategori->id; ?>">
-                  <?= $kategori->nama_kategori ?><br>
-                  <img src="<?= BASE_URL . 'uploads/kategori_produk/' . $kategori->photo; ?>" class="image-responsive"
-                     alt="image kategori" title="photo kategori">
+               <a class="text-black" rel="group" href="<?= BASE_URL . 'web/detail_produk/' . $produk->id; ?>">
+                  <?= $produk->nama_produk ?><br>
+                  <img src="<?= BASE_URL . 'uploads/produk/' . $produk->photo; ?>" class="image-responsive"
+                     alt="image produk" title="photo produk">
                </a>
             </div>
          <?php endforeach; ?>
       </div>
 
-      <h3 class="text-center">Kredit</h3> 
+      <h3 class="text-center">Kredit</h3>
       <hr class="hrcenter">
 
       <div class="row text-center">
@@ -102,6 +112,6 @@
          </div>
 
       </div>
-   <?= get_footer(); ?>
+      <?= get_footer(); ?>
 
    </body>

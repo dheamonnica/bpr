@@ -1,5 +1,8 @@
 
 
+    <link href="<?= BASE_ASSET; ?>/fine-upload/fine-uploader-gallery.min.css" rel="stylesheet">
+    <script src="<?= BASE_ASSET; ?>/fine-upload/jquery.fine-uploader.js"></script>
+    <?php $this->load->view('core_template/fine_upload'); ?>
 <script type="text/javascript">
     function domo() {
 
@@ -24,11 +27,11 @@
 </script>
 <section class="content-header">
     <h1>
-        Survei Lapangan        <small>Edit Survei Lapangan</small>
+        Slideshow        <small>Edit Slideshow</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class=""><a href="<?= site_url('administrator/survei_lapangan'); ?>">Survei Lapangan</a></li>
+        <li class=""><a href="<?= site_url('administrator/slideshow'); ?>">Slideshow</a></li>
         <li class="active">Edit</li>
     </ol>
 </section>
@@ -46,14 +49,14 @@
                             <div class="widget-user-image">
                                 <img class="img-circle" src="<?= BASE_ASSET; ?>/img/add2.png" alt="User Avatar">
                             </div>
-                            <h3 class="widget-user-username">Survei Lapangan</h3>
-                            <h5 class="widget-user-desc">Edit Survei Lapangan</h5>
+                            <h3 class="widget-user-username">Slideshow</h3>
+                            <h5 class="widget-user-desc">Edit Slideshow</h5>
                             <hr>
                         </div>
-                        <?= form_open(base_url('administrator/survei_lapangan/edit_save/'.$this->uri->segment(4)), [
-                            'name' => 'form_survei_lapangan',
+                        <?= form_open(base_url('administrator/slideshow/edit_save/'.$this->uri->segment(4)), [
+                            'name' => 'form_slideshow',
                             'class' => 'form-horizontal form-step',
-                            'id' => 'form_survei_lapangan',
+                            'id' => 'form_slideshow',
                             'method' => 'POST'
                         ]); ?>
 
@@ -63,76 +66,17 @@
 
                                                     
                         
-                        <div class="form-group group-jaminan_kredit  ">
-                                <label for="jaminan_kredit" class="col-sm-2 control-label">Jaminan Kredit                                    <i class="required">*</i>
+                        <div class="form-group group-photo  ">
+                                <label for="photo" class="col-sm-2 control-label">Photo                                    <i class="required">*</i>
                                     </label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="jaminan_kredit" id="jaminan_kredit" placeholder="" value="<?= set_value('jaminan_kredit', $survei_lapangan->jaminan_kredit); ?>">
-                                    <small class="info help-block">
-                                        <b>Input Jaminan Kredit</b> Max Length : 255.</small>
-                                </div>
-                            </div>
-                        
-                        
-                                                    
-                        
-                        <div class="form-group group-lokasi_jaminan  ">
-                                <label for="lokasi_jaminan" class="col-sm-2 control-label">Lokasi Jaminan                                    <i class="required">*</i>
-                                    </label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="lokasi_jaminan" id="lokasi_jaminan" placeholder="" value="<?= set_value('lokasi_jaminan', $survei_lapangan->lokasi_jaminan); ?>">
-                                    <small class="info help-block">
-                                        <b>Input Lokasi Jaminan</b> Max Length : 255.</small>
-                                </div>
-                            </div>
-                        
-                        
-                                                    
-                        
-                        <div class="form-group group-situasi_jaminan  ">
-                                <label for="situasi_jaminan" class="col-sm-2 control-label">Situasi Jaminan                                    <i class="required">*</i>
-                                    </label>
-                                <div class="col-sm-8">
-                                    <textarea id="situasi_jaminan" name="situasi_jaminan" rows="10" cols="80"> <?= set_value('situasi_jaminan', $survei_lapangan->situasi_jaminan); ?></textarea>
+                                    <div id="slideshow_photo_galery"></div>
+                                    <input class="data_file data_file_uuid" name="slideshow_photo_uuid" id="slideshow_photo_uuid" type="hidden" value="<?= set_value('slideshow_photo_uuid'); ?>">
+                                    <input class="data_file" name="slideshow_photo_name" id="slideshow_photo_name" type="hidden" value="<?= set_value('slideshow_photo_name', $slideshow->photo); ?>">
                                     <small class="info help-block">
                                         </small>
                                 </div>
                             </div>
-                        
-                        
-                                                    
-                        
-                        <div class="form-group group-updated_by  ">
-                                <label for="updated_by" class="col-sm-2 control-label">Updated By                                    </label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="updated_by" id="updated_by" placeholder="" value="<?= set_value('updated_by', $survei_lapangan->updated_by); ?>">
-                                    <small class="info help-block">
-                                        </small>
-                                </div>
-                            </div>
-                        
-                        
-                                                                                
-                        
-                        <div class="form-group group-username">
-                                <label for="username" class="col-sm-2 control-label">Username                                    </label>
-                                <div class="col-sm-8">
-                                    <select class="form-control chosen chosen-select-deselect" name="username" id="username" data-placeholder="Select Username">
-                                        <option value=""></option>
-                                        <?php
-                                        $conditions = [
-                                            ];
-                                        ?>
-                                        <?php foreach (db_get_all_data('artikel', $conditions) as $row): ?>
-                                        <option <?= $row->id == $survei_lapangan->username ? 'selected' : ''; ?> value="<?= $row->id ?>"><?= $row->judul_artikel; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                    <small class="info help-block">
-                                        </small>
-                                </div>
-                            </div>
-
-
                         
                         
                         
@@ -166,7 +110,6 @@
     </div>
 </section>
 
-    <script src="<?= BASE_ASSET; ?>ckeditor/ckeditor.js"></script>
 
 <script>
     $(document).ready(function() {
@@ -181,9 +124,7 @@
       
         
         
-    CKEDITOR.replace('situasi_jaminan');
-    var situasi_jaminan = CKEDITOR.instances.situasi_jaminan;
-        
+    
     $('#btn_cancel').click(function() {
         swal({
                 title: "Are you sure?",
@@ -198,7 +139,7 @@
             },
             function(isConfirm) {
                 if (isConfirm) {
-                    window.location.href = BASE_URL + 'administrator/survei_lapangan';
+                    window.location.href = BASE_URL + 'administrator/slideshow';
                 }
             });
 
@@ -207,10 +148,9 @@
 
     $('.btn_save').click(function() {
         $('.message').fadeOut();
-        $('#situasi_jaminan').val(situasi_jaminan.getData());
         
-    var form_survei_lapangan = $('#form_survei_lapangan');
-    var data_post = form_survei_lapangan.serializeArray();
+    var form_slideshow = $('#form_slideshow');
+    var data_post = form_slideshow.serializeArray();
     var save_type = $(this).attr('data-stype');
     data_post.push({
         name: 'save_type',
@@ -227,7 +167,7 @@
     $('.loading').show();
 
     $.ajax({
-            url: form_survei_lapangan.attr('action'),
+            url: form_slideshow.attr('action'),
             type: 'POST',
             dataType: 'json',
             data: data_post,
@@ -237,7 +177,7 @@
             $('form').find('.error-input').remove();
             $('.steps li').removeClass('error');
             if (res.success) {
-                var id = $('#survei_lapangan_image_galery').find('li').attr('qq-file-id');
+                var id = $('#slideshow_image_galery').find('li').attr('qq-file-id');
                 if (save_type == 'back') {
                     window.location.href = res.redirect;
                     return;
@@ -276,7 +216,60 @@
     return false;
     }); /*end btn save*/
 
-    
+                        var params = {};
+            params[csrf] = token;
+
+            $('#slideshow_photo_galery').fineUploader({
+                template: 'qq-template-gallery',
+                request: {
+                    endpoint: BASE_URL + '/administrator/slideshow/upload_photo_file',
+                    params: params
+                },
+                deleteFile: {
+                    enabled: true, // defaults to false
+                    endpoint: BASE_URL + '/administrator/slideshow/delete_photo_file'
+                },
+                thumbnails: {
+                    placeholders: {
+                        waitingPath: BASE_URL + '/asset/fine-upload/placeholders/waiting-generic.png',
+                        notAvailablePath: BASE_URL + '/asset/fine-upload/placeholders/not_available-generic.png'
+                    }
+                },
+                session: {
+                    endpoint: BASE_URL + 'administrator/slideshow/get_photo_file/<?= $slideshow->id; ?>',
+                    refreshOnRequest: true
+                },
+                multiple: false,
+                validation: {
+                    allowedExtensions: ["*"],
+                    sizeLimit: 0,
+                                    },
+                showMessage: function(msg) {
+                    toastr['error'](msg);
+                },
+                callbacks: {
+                    onComplete: function(id, name, xhr) {
+                        if (xhr.success) {
+                            var uuid = $('#slideshow_photo_galery').fineUploader('getUuid', id);
+                            $('#slideshow_photo_uuid').val(uuid);
+                            $('#slideshow_photo_name').val(xhr.uploadName);
+                        } else {
+                            toastr['error'](xhr.error);
+                        }
+                    },
+                    onSubmit: function(id, name) {
+                        var uuid = $('#slideshow_photo_uuid').val();
+                        $.get(BASE_URL + '/administrator/slideshow/delete_photo_file/' + uuid);
+                    },
+                    onDeleteComplete: function(id, xhr, isError) {
+                        if (isError == false) {
+                            $('#slideshow_photo_uuid').val('');
+                            $('#slideshow_photo_name').val('');
+                        }
+                    }
+                }
+            }); /*end photo galey*/
+            
 
     
 

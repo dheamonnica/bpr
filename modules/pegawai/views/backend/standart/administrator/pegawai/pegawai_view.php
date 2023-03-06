@@ -67,6 +67,14 @@ jQuery(document).ready(domo);
                         </div>
                     </div>
                                         
+                    <div class="form-group ">
+                        <label for="content" class="col-sm-2 control-label">Is Featured </label>
+
+                        <div class="col-sm-8">
+                        <span class="detail_group-is_featured"><?= _ent($pegawai->is_featured); ?></span>
+                        </div>
+                    </div>
+                                        
                     <br>
                     <br>
 

@@ -5,7 +5,7 @@ class Model_pegawai extends MY_Model {
 
     private $primary_key    = 'id';
     private $table_name     = 'pegawai';
-    public $field_search   = ['nama', 'jabatan'];
+    public $field_search   = ['nama', 'jabatan', 'is_featured'];
     public $sort_option = ['id', 'DESC'];
     
     public function __construct()

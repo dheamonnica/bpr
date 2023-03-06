@@ -1047,4 +1047,10 @@ div.phpdebugbar-header, .phpdebugbar-restore-btn {
 .page-scroll.active {
   color: #2d890c !important;
 }
+
+.bg-slide {
+  width: 99vw;
+  object-fit: cover;
+  height: 99vh !important;
+}
 /*.......... end timeline style ..........*/

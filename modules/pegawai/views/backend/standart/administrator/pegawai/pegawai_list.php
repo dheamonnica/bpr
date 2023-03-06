@@ -85,6 +85,7 @@ jQuery(document).ready(domo);
                               <option value=""><?= cclang('all'); ?></option>
                                <option <?= $this->input->get('f') == 'nama' ? 'selected' :''; ?> value="nama">Nama</option>
                             <option <?= $this->input->get('f') == 'jabatan' ? 'selected' :''; ?> value="jabatan">Jabatan</option>
+                            <option <?= $this->input->get('f') == 'is_featured' ? 'selected' :''; ?> value="is_featured">Is Featured</option>
                            </select>
                         </div>
                         <div class="col-sm-1 padd-left-0 ">
@@ -115,6 +116,7 @@ jQuery(document).ready(domo);
                            </th>
                                                     <th data-field="nama"data-sort="1" data-primary-key="0"> <?= cclang('nama') ?></th>
                            <th data-field="jabatan"data-sort="1" data-primary-key="0"> <?= cclang('jabatan') ?></th>
+                           <th data-field="is_featured"data-sort="1" data-primary-key="0"> <?= cclang('is_featured') ?></th>
                            <th>Action</th>                        </tr>
                      </thead>
                      <tbody id="tbody_pegawai">
@@ -126,6 +128,7 @@ jQuery(document).ready(domo);
                                                        
                            <td><span class="list_group-nama"><?= _ent($pegawai->nama); ?></span></td> 
                            <td><span class="list_group-jabatan"><?= _ent($pegawai->jabatan); ?></span></td> 
+                           <td><span class="list_group-is_featured"><?= _ent($pegawai->is_featured); ?></span></td> 
                            <td width="200">
                             
                                                               <?php is_allowed('pegawai_view', function() use ($pegawai){?>

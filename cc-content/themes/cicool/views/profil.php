@@ -4,14 +4,14 @@
     <?= get_navigation(); ?>
 
     <body>
-        <div class="header-content text-center" style="padding: 10% 0 0 0;">
+        <div class="header-content text-center" style="padding: 7% 0 0 0;">
             <div class="header-content-inner">
                 <h2 id="homeHeading">Struktur Organisasi
                     <?= get_option('site_name') ?>
                 </h2>
                 <hr class="hrcenter">
                 <p>
-                    <img src="https://dummyimage.com/900x900/000/fff" />
+                    <img src="<?= BASE_URL . 'asset/img/so.png'?>" width="100%" class="p-5"/>
                 </p>
                 <br>
             </div>

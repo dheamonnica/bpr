@@ -1,4 +1,7 @@
 
+    <link href="<?= BASE_ASSET; ?>/fine-upload/fine-uploader-gallery.min.css" rel="stylesheet">
+    <script src="<?= BASE_ASSET; ?>/fine-upload/jquery.fine-uploader.js"></script>
+    <?php $this->load->view('core_template/fine_upload'); ?>
 <script type="text/javascript">
     function domo() {
 
@@ -25,11 +28,11 @@
     </style>
 <section class="content-header">
     <h1>
-        Pegawai        <small><?= cclang('new', ['Pegawai']); ?> </small>
+        Slideshow        <small><?= cclang('new', ['Slideshow']); ?> </small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class=""><a href="<?= admin_site_url('/pegawai'); ?>">Pegawai</a></li>
+        <li class=""><a href="<?= admin_site_url('/slideshow'); ?>">Slideshow</a></li>
         <li class="active"><?= cclang('new'); ?></li>
     </ol>
 </section>
@@ -43,14 +46,14 @@
                             <div class="widget-user-image">
                                 <img class="img-circle" src="<?= BASE_ASSET; ?>/img/add2.png" alt="User Avatar">
                             </div>
-                            <h3 class="widget-user-username">Pegawai</h3>
-                            <h5 class="widget-user-desc"><?= cclang('new', ['Pegawai']); ?></h5>
+                            <h3 class="widget-user-username">Slideshow</h3>
+                            <h5 class="widget-user-desc"><?= cclang('new', ['Slideshow']); ?></h5>
                             <hr>
                         </div>
                         <?= form_open('', [
-                            'name' => 'form_pegawai',
+                            'name' => 'form_slideshow',
                             'class' => 'form-horizontal form-step',
-                            'id' => 'form_pegawai',
+                            'id' => 'form_slideshow',
                             'enctype' => 'multipart/form-data',
                             'method' => 'POST'
                         ]); ?>
@@ -58,43 +61,13 @@
                         $user_groups = $this->model_group->get_user_group_ids();
                         ?>
 
-                        <div class="form-group group-nama ">
-                            <label for="nama" class="col-sm-2 control-label">Nama                                <i class="required">*</i>
+                        <div class="form-group group-photo ">
+                            <label for="photo" class="col-sm-2 control-label">Photo                                <i class="required">*</i>
                                 </label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama" value="<?= set_value('nama'); ?>">
-                                <small class="info help-block">
-                                    <b>Input Nama</b> Max Length : 255.</small>
-                            </div>
-                        </div>
-                    
-
-    <div class="form-group group-jabatan ">
-                            <label for="jabatan" class="col-sm-2 control-label">Jabatan                                <i class="required">*</i>
-                                </label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" name="jabatan" id="jabatan" placeholder="Jabatan" value="<?= set_value('jabatan'); ?>">
-                                <small class="info help-block">
-                                    <b>Input Jabatan</b> Max Length : 255.</small>
-                            </div>
-                        </div>
-                    
-
-    <div class="form-group group-is_featured ">
-                            <label for="is_featured" class="col-sm-2 control-label">Is Featured                                </label>
-                            <div class="col-sm-6">
-                                <div class="col-md-2 padding-left-0">
-                                    <label>
-                                        <input type="radio" class="flat-red" name="is_featured" id="is_featured" value="yes">
-                                        <?= cclang('yes'); ?>
-                                    </label>
-                                </div>
-                                <div class="col-md-14">
-                                    <label>
-                                        <input type="radio" class="flat-red" name="is_featured" id="is_featured" value="no">
-                                        <?= cclang('no'); ?>
-                                    </label>
-                                </div>
+                                <div id="slideshow_photo_galery"></div>
+                                <input class="data_file" name="slideshow_photo_uuid" id="slideshow_photo_uuid" type="hidden" value="<?= set_value('slideshow_photo_uuid'); ?>">
+                                <input class="data_file" name="slideshow_photo_name" id="slideshow_photo_name" type="hidden" value="<?= set_value('slideshow_photo_name'); ?>">
                                 <small class="info help-block">
                                     </small>
                             </div>
@@ -161,7 +134,7 @@
             },
             function(isConfirm) {
                 if (isConfirm) {
-                    window.location.href = BASE_URL + '/administrator/pegawai';
+                    window.location.href = BASE_URL + '/administrator/slideshow';
                 }
             });
 
@@ -171,8 +144,8 @@
     $('.btn_save').click(function() {
         $('.message').fadeOut();
         
-    var form_pegawai = $('#form_pegawai');
-    var data_post = form_pegawai.serializeArray();
+    var form_slideshow = $('#form_slideshow');
+    var data_post = form_slideshow.serializeArray();
     var save_type = $(this).attr('data-stype');
 
     data_post.push({
@@ -190,7 +163,7 @@
     $('.loading').show();
 
     $.ajax({
-            url: BASE_URL + '/administrator/pegawai/add_save',
+            url: BASE_URL + '/administrator/slideshow/add_save',
             type: 'POST',
             dataType: 'json',
             data: data_post,
@@ -200,7 +173,8 @@
             $('.steps li').removeClass('error');
             $('form').find('.error-input').remove();
             if (res.success) {
-                
+                var id_photo = $('#slideshow_photo_galery').find('li').attr('qq-file-id');
+            
             if (save_type == 'back') {
                 window.location.href = res.redirect;
                 return;
@@ -211,6 +185,9 @@
             });
             $('.message').fadeIn();
             resetForm();
+            if(typeof id_photo !== 'undefined') {
+                $('#slideshow_photo_galery').fineUploader('deleteFile', id_photo);
+            }
             $('.chosen option').prop('selected', false).trigger('chosen:updated');
             
             } else {
@@ -252,7 +229,56 @@
     return false;
     }); /*end btn save*/
 
-    
+            var params = {};
+        params[csrf] = token;
+
+        $('#slideshow_photo_galery').fineUploader({
+            template: 'qq-template-gallery',
+            request: {
+                endpoint: BASE_URL + '/administrator/slideshow/upload_photo_file',
+                params: params
+            },
+            deleteFile: {
+                enabled: true,
+                endpoint: BASE_URL + '/administrator/slideshow/delete_photo_file',
+            },
+            thumbnails: {
+                placeholders: {
+                    waitingPath: BASE_URL + '/asset/fine-upload/placeholders/waiting-generic.png',
+                    notAvailablePath: BASE_URL + '/asset/fine-upload/placeholders/not_available-generic.png'
+                }
+            },
+            multiple: false,
+            validation: {
+                allowedExtensions: ["*"],
+                sizeLimit: 0,
+                            },
+            showMessage: function(msg) {
+                toastr['error'](msg);
+            },
+            callbacks: {
+                onComplete: function(id, name, xhr) {
+                    if (xhr.success) {
+                        var uuid = $('#slideshow_photo_galery').fineUploader('getUuid', id);
+                        $('#slideshow_photo_uuid').val(uuid);
+                        $('#slideshow_photo_name').val(xhr.uploadName);
+                    } else {
+                        toastr['error'](xhr.error);
+                    }
+                },
+                onSubmit: function(id, name) {
+                    var uuid = $('#slideshow_photo_uuid').val();
+                    $.get(BASE_URL + '/administrator/slideshow/delete_photo_file/' + uuid);
+                },
+                onDeleteComplete: function(id, xhr, isError) {
+                    if (isError == false) {
+                        $('#slideshow_photo_uuid').val('');
+                        $('#slideshow_photo_name').val('');
+                    }
+                }
+            }
+        }); /*end photo galery*/
+        
 
     
 

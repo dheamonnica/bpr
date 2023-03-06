@@ -23,6 +23,7 @@ class Web extends Front
         $this->load->model('faq/model_faq');
         $this->load->model('kritik/model_kritik');
         $this->load->model('kredit/model_kredit');
+        $this->load->model('slider/model_slider');
     }
 
     public function index()
@@ -57,8 +58,9 @@ class Web extends Front
         if (defined('IS_DEMO')) {
             $this->template->build('home-demo');
         } else {
-            $this->data['kategoris'] = $this->model_kategori_produk->get();
+            $this->data['produks'] = $this->model_produk->get();
             $this->data['kredits'] = $this->model_kredit->get();
+            $this->data['sliders'] = $this->model_slider->get();
             $this->template->build('home', $this->data);
         }
     }

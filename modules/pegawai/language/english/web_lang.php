@@ -5,3 +5,4 @@ $lang['pegawai'] = 'Pegawai';
 $lang['id'] = 'Id';
 $lang['nama'] = 'Nama';
 $lang['jabatan'] = 'Jabatan';
+$lang['is_featured'] = 'Is Featured';

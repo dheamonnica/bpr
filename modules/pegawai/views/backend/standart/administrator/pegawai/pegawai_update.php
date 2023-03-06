@@ -87,6 +87,29 @@
                             </div>
                         
                         
+                                                    
+                        
+                        <div class="form-group group-is_featured  ">
+                                <label for="is_featured" class="col-sm-2 control-label">Is Featured                                    </label>
+                                <div class="col-sm-6">
+                                    <div class="col-md-2 padding-left-0">
+                                        <label>
+                                            <input type="radio" class="flat-red" name="is_featured" id="is_featured" value="yes" <?= $pegawai->is_featured == "yes" ? "checked" : ""; ?>>
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <div class="col-md-14">
+                                        <label>
+                                            <input type="radio" class="flat-red" name="is_featured" id="is_featured" value="no" <?= $pegawai->is_featured == "no" ? "checked" : ""; ?>>
+                                            No
+                                        </label>
+                                    </div>
+                                    <small class="info help-block">
+                                        </small>
+                                </div>
+                            </div>
+                        
+                        
                         
                                                     <div class="message"></div>
                                                 <div class="row-fluid col-md-7 container-button-bottom">

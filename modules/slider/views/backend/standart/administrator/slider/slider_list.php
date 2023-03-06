@@ -2,7 +2,7 @@
 function domo(){
  
    $('*').bind('keydown', 'Ctrl+a', function() {
-       window.location.href = BASE_URL + '/administrator/Survei_lapangan/add';
+       window.location.href = BASE_URL + '/administrator/Slider/add';
        return false;
    });
 
@@ -27,11 +27,11 @@ jQuery(document).ready(domo);
 </script>
 <section class="content-header">
    <h1>
-      <?= cclang('survei_lapangan') ?><small><?= cclang('list_all'); ?></small>
+      <?= cclang('slider') ?><small><?= cclang('list_all'); ?></small>
    </h1>
    <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active"><?= cclang('survei_lapangan') ?></li>
+      <li class="active"><?= cclang('slider') ?></li>
    </ol>
 </section>
 <!-- Main content -->
@@ -44,25 +44,25 @@ jQuery(document).ready(domo);
                <div class="box box-widget widget-user-2">
                   <div class="widget-user-header ">
                      <div class="row pull-right">
-                        <?php is_allowed('survei_lapangan_add', function(){?>
-                        <a class="btn btn-flat btn-success btn_add_new" id="btn_add_new" title="<?= cclang('add_new_button', [cclang('survei_lapangan')]); ?>  (Ctrl+a)" href="<?=  site_url('administrator/survei_lapangan/add'); ?>"><i class="fa fa-plus-square-o" ></i> <?= cclang('add_new_button', [cclang('survei_lapangan')]); ?></a>
+                        <?php is_allowed('slider_add', function(){?>
+                        <a class="btn btn-flat btn-success btn_add_new" id="btn_add_new" title="<?= cclang('add_new_button', [cclang('slider')]); ?>  (Ctrl+a)" href="<?=  site_url('administrator/slider/add'); ?>"><i class="fa fa-plus-square-o" ></i> <?= cclang('add_new_button', [cclang('slider')]); ?></a>
                         <?php }) ?>
-                        <!-- <?php is_allowed('survei_lapangan_export', function(){?>
-                        <a class="btn btn-flat btn-success" title="<?= cclang('export'); ?> <?= cclang('survei_lapangan') ?> " href="<?= site_url('administrator/survei_lapangan/export?q='.$this->input->get('q').'&f='.$this->input->get('f')); ?>"><i class="fa fa-file-excel-o" ></i> <?= cclang('export'); ?> XLS</a>
+                        <!-- <?php is_allowed('slider_export', function(){?>
+                        <a class="btn btn-flat btn-success" title="<?= cclang('export'); ?> <?= cclang('slider') ?> " href="<?= site_url('administrator/slider/export?q='.$this->input->get('q').'&f='.$this->input->get('f')); ?>"><i class="fa fa-file-excel-o" ></i> <?= cclang('export'); ?> XLS</a>
                         <?php }) ?> -->
-                                                <!-- <?php is_allowed('survei_lapangan_export', function(){?>
-                        <a class="btn btn-flat btn-success" title="<?= cclang('export'); ?> pdf <?= cclang('survei_lapangan') ?> " href="<?= site_url('administrator/survei_lapangan/export_pdf?q='.$this->input->get('q').'&f='.$this->input->get('f')); ?>"><i class="fa fa-file-pdf-o" ></i> <?= cclang('export'); ?> PDF</a>
+                                                <!-- <?php is_allowed('slider_export', function(){?>
+                        <a class="btn btn-flat btn-success" title="<?= cclang('export'); ?> pdf <?= cclang('slider') ?> " href="<?= site_url('administrator/slider/export_pdf?q='.$this->input->get('q').'&f='.$this->input->get('f')); ?>"><i class="fa fa-file-pdf-o" ></i> <?= cclang('export'); ?> PDF</a>
                         <?php }) ?> -->
                                              </div>
                      <div class="widget-user-image">
                         <img class="img-circle" src="<?= BASE_ASSET; ?>/img/list.png" alt="User Avatar">
                      </div>
                      <!-- /.widget-user-image -->
-                     <h3 class="widget-user-username"><?= cclang('survei_lapangan') ?></h3>
-                     <h5 class="widget-user-desc"><?= cclang('list_all', [cclang('survei_lapangan')]); ?>  <i class="label bg-yellow"><?= $survei_lapangan_counts; ?>  <?= cclang('items'); ?></i></h5>
+                     <h3 class="widget-user-username"><?= cclang('slider') ?></h3>
+                     <h5 class="widget-user-desc"><?= cclang('list_all', [cclang('slider')]); ?>  <i class="label bg-yellow"><?= $slider_counts; ?>  <?= cclang('items'); ?></i></h5>
                   </div>
 
-                  <form name="form_survei_lapangan" id="form_survei_lapangan" action="<?= base_url('administrator/survei_lapangan/index'); ?>">
+                  <form name="form_slider" id="form_slider" action="<?= base_url('administrator/slider/index'); ?>">
                   
 
 
@@ -83,12 +83,7 @@ jQuery(document).ready(domo);
                         <div class="col-sm-3 padd-left-0 " >
                            <select type="text" class="form-control chosen chosen-select" name="f" id="field" >
                               <option value=""><?= cclang('all'); ?></option>
-                               <option <?= $this->input->get('f') == 'jaminan_kredit' ? 'selected' :''; ?> value="jaminan_kredit">Jaminan Kredit</option>
-                            <option <?= $this->input->get('f') == 'lokasi_jaminan' ? 'selected' :''; ?> value="lokasi_jaminan">Lokasi Jaminan</option>
-                            <option <?= $this->input->get('f') == 'situasi_jaminan' ? 'selected' :''; ?> value="situasi_jaminan">Situasi Jaminan</option>
-                            <option <?= $this->input->get('f') == 'updated_by' ? 'selected' :''; ?> value="updated_by">Updated By</option>
-                            <option <?= $this->input->get('f') == 'created_at' ? 'selected' :''; ?> value="created_at">Created At</option>
-                            <option <?= $this->input->get('f') == 'username' ? 'selected' :''; ?> value="username">Username</option>
+                               <option <?= $this->input->get('f') == 'slideshow' ? 'selected' :''; ?> value="slideshow">Slideshow</option>
                            </select>
                         </div>
                         <div class="col-sm-1 padd-left-0 ">
@@ -97,7 +92,7 @@ jQuery(document).ready(domo);
                            </button>
                         </div>
                         <div class="col-sm-1 padd-left-0 ">
-                           <a class="btn btn-default btn-flat" name="reset" id="reset" value="Apply" href="<?= base_url('administrator/survei_lapangan');?>" title="<?= cclang('reset_filter'); ?>">
+                           <a class="btn btn-default btn-flat" name="reset" id="reset" value="Apply" href="<?= base_url('administrator/slider');?>" title="<?= cclang('reset_filter'); ?>">
                            <i class="fa fa-undo"></i>
                            </a>
                         </div>
@@ -117,48 +112,48 @@ jQuery(document).ready(domo);
                                                      <th>
                             <input type="checkbox" class="flat-red toltip" id="check_all" name="check_all" title="check all">
                            </th>
-                                                    <th data-field="jaminan_kredit"data-sort="1" data-primary-key="0"> <?= cclang('jaminan_kredit') ?></th>
-                           <th data-field="lokasi_jaminan"data-sort="1" data-primary-key="0"> <?= cclang('lokasi_jaminan') ?></th>
-                           <th data-field="situasi_jaminan"data-sort="1" data-primary-key="0"> <?= cclang('situasi_jaminan') ?></th>
-                           <th data-field="updated_by"data-sort="1" data-primary-key="0"> <?= cclang('updated_by') ?></th>
-                           <th data-field="created_at"data-sort="1" data-primary-key="0"> <?= cclang('created_at') ?></th>
-                           <th data-field="username"data-sort="1" data-primary-key="0"> <?= cclang('username') ?></th>
+                                                    <th data-field="slideshow"data-sort="0" data-primary-key="0"> <?= cclang('slideshow') ?></th>
                            <th>Action</th>                        </tr>
                      </thead>
-                     <tbody id="tbody_survei_lapangan">
-                     <?php foreach($survei_lapangans as $survei_lapangan): ?>
+                     <tbody id="tbody_slider">
+                     <?php foreach($sliders as $slider): ?>
                         <tr>
                                                        <td width="5">
-                              <input type="checkbox" class="flat-red check" name="id[]" value="<?= $survei_lapangan->id; ?>">
+                              <input type="checkbox" class="flat-red check" name="id[]" value="<?= $slider->id; ?>">
                            </td>
                                                        
-                           <td><span class="list_group-jaminan_kredit"><?= _ent($survei_lapangan->jaminan_kredit); ?></span></td> 
-                           <td><span class="list_group-lokasi_jaminan"><?= _ent($survei_lapangan->lokasi_jaminan); ?></span></td> 
-                           <td><span class="list_group-situasi_jaminan"><?= _ent($survei_lapangan->situasi_jaminan); ?></span></td> 
-                           <td><span class="list_group-updated_by"><?= _ent($survei_lapangan->updated_by); ?></span></td> 
-                           <td><span class="list_group-created_at"><?= _ent($survei_lapangan->created_at); ?></span></td> 
-                           <td><?php if  ($survei_lapangan->username) {
-
-                              echo anchor('administrator/artikel/view/'.$survei_lapangan->username.'?popup=show', $survei_lapangan->artikel_judul_artikel, ['class' => 'popup-view']); }?> </td>
-                             
+                           <td>
+                              <?php if (!empty($slider->slideshow)): ?>
+                                <?php if (is_image($slider->slideshow)): ?>
+                                <a class="fancybox" rel="group" href="<?= BASE_URL . 'uploads/slider/' . $slider->slideshow; ?>">
+                                  <img src="<?= BASE_URL . 'uploads/slider/' . $slider->slideshow; ?>" class="image-responsive" alt="image slider" title="slideshow slider" width="40px">
+                                </a>
+                                <?php else: ?>
+                                  <a href="<?= BASE_URL . 'uploads/slider/' . $slider->slideshow; ?>" target="blank">
+                                   <img src="<?= get_icon_file($slider->slideshow); ?>" class="image-responsive image-icon" alt="image slider" title="slideshow <?= $slider->slideshow; ?>" width="40px"> 
+                                 </a>
+                                <?php endif; ?>
+                              <?php endif; ?>
+                           </td>
+                            
                            <td width="200">
                             
-                                                              <?php is_allowed('survei_lapangan_view', function() use ($survei_lapangan){?>
-                                                              <a href="<?= site_url('administrator/survei_lapangan/view/' . $survei_lapangan->id); ?>" class="label-default"><i class="fa fa-newspaper-o"></i> <?= cclang('view_button'); ?>
+                                                              <?php is_allowed('slider_view', function() use ($slider){?>
+                                                              <a href="<?= site_url('administrator/slider/view/' . $slider->id); ?>" class="label-default"><i class="fa fa-newspaper-o"></i> <?= cclang('view_button'); ?>
                               <?php }) ?>
-                              <?php is_allowed('survei_lapangan_update', function() use ($survei_lapangan){?>
-                              <a href="<?= site_url('administrator/survei_lapangan/edit/' . $survei_lapangan->id); ?>" class="label-default"><i class="fa fa-edit "></i> <?= cclang('update_button'); ?></a>
+                              <?php is_allowed('slider_update', function() use ($slider){?>
+                              <a href="<?= site_url('administrator/slider/edit/' . $slider->id); ?>" class="label-default"><i class="fa fa-edit "></i> <?= cclang('update_button'); ?></a>
                               <?php }) ?>
-                              <?php is_allowed('survei_lapangan_delete', function() use ($survei_lapangan){?>
-                              <a href="javascript:void(0);" data-href="<?= site_url('administrator/survei_lapangan/delete/' . $survei_lapangan->id); ?>" class="label-default remove-data"><i class="fa fa-close"></i> <?= cclang('remove_button'); ?></a>
+                              <?php is_allowed('slider_delete', function() use ($slider){?>
+                              <a href="javascript:void(0);" data-href="<?= site_url('administrator/slider/delete/' . $slider->id); ?>" class="label-default remove-data"><i class="fa fa-close"></i> <?= cclang('remove_button'); ?></a>
                                <?php }) ?>
 
                            </td>                        </tr>
                       <?php endforeach; ?>
-                      <?php if ($survei_lapangan_counts == 0) :?>
+                      <?php if ($slider_counts == 0) :?>
                          <tr>
                            <td colspan="100">
-                           Survei Lapangan data is not available
+                           Slider data is not available
                            </td>
                          </tr>
                       <?php endif; ?>
@@ -212,7 +207,7 @@ jQuery(document).ready(domo);
     $('#apply').click(function(){
 
       var bulk = $('#bulk');
-      var serialize_bulk = $('#form_survei_lapangan').serialize();
+      var serialize_bulk = $('#form_slider').serialize();
 
       if (bulk.val() == 'delete') {
          swal({
@@ -228,7 +223,7 @@ jQuery(document).ready(domo);
           },
           function(isConfirm){
             if (isConfirm) {
-               document.location.href = BASE_URL + '/administrator/survei_lapangan/delete?' + serialize_bulk;      
+               document.location.href = BASE_URL + '/administrator/slider/delete?' + serialize_bulk;      
             }
           });
 
@@ -274,6 +269,6 @@ jQuery(document).ready(domo);
         }
         checkAll.iCheck('update');
     });
-    initSortable('survei_lapangan', $('table.dataTable'));
+    initSortable('slider', $('table.dataTable'));
   }); /*end doc ready*/
 </script>

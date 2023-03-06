@@ -101,6 +101,27 @@
                         </div>
                     
 
+    <div class="form-group group-username ">
+                            <label for="username" class="col-sm-2 control-label">Username                                </label>
+                            <div class="col-sm-8">
+                                <select class="form-control chosen chosen-select-deselect" name="username" id="username" data-placeholder="Select Username">
+                                    <option value=""></option>
+                                    <?php
+                                    $conditions = [
+                                    ];
+                                    ?>
+
+                                    <?php foreach (db_get_all_data('artikel', $conditions) as $row): ?>
+                                    <option value="<?= $row->id ?>"><?= $row->judul_artikel; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <small class="info help-block">
+                                    </small>
+                            </div>
+                        </div>
+
+                    
+
     
 
     <div class="message"></div>
