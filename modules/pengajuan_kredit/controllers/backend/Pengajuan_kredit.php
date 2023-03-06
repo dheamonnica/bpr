@@ -135,7 +135,7 @@ class Pengajuan_kredit extends Admin
 				'created_at' => $this->input->post('created_at'),
 				'updated_at' => $this->input->post('updated_at'),
 				'updated_by' => get_user_data('username'),
-				'status' => $this->input->post('status'),
+				'status' => 'draft',
 			];
 
 			

@@ -47,6 +47,29 @@ class User extends Admin
 		$this->render('backend/standart/administrator/user/user_list', $this->data);
 	}
 
+	public function user_list($offset = 0)
+	{
+		$this->is_allowed('user_list');
+
+		$filter = $this->input->get('q');
+		$field 	= $this->input->get('f');
+
+		$this->data['users'] = $this->model_user->get($filter, $field, $this->limit_page, $offset);
+		$this->data['user_counts'] = $this->model_user->count_all($filter, $field);
+
+		$config = [
+			'base_url'     => 'administrator/user/index/',
+			'total_rows'   => $this->model_user->count_all($filter, $field),
+			'per_page'     => $this->limit_page,
+			'uri_segment'  => 4,
+		];
+
+		$this->data['pagination'] = $this->pagination($config);
+
+		$this->template->title('User List');
+		$this->render('backend/standart/administrator/user/user_pengajuan_list', $this->data);
+	}
+
 	/**
 	* show all users
 	*

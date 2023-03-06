@@ -121,10 +121,11 @@
                                         <option value=""></option>
                                         <?php
                                         $conditions = [
+                                            'is_featured' => 1
                                             ];
                                         ?>
-                                        <?php foreach (db_get_all_data('artikel', $conditions) as $row): ?>
-                                        <option <?= $row->id == $survei_lapangan->username ? 'selected' : ''; ?> value="<?= $row->id ?>"><?= $row->judul_artikel; ?></option>
+                                        <?php foreach (db_get_all_data('aauth_users', $conditions) as $row): ?>
+                                        <option <?= $row->id == $survei_lapangan->username ? 'selected' : ''; ?> value="<?= $row->id ?>"><?= $row->username; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <small class="info help-block">

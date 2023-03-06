@@ -42,7 +42,7 @@ class Model_user extends MY_Model {
         	$where .= "(" . $field . " LIKE '%" . $q . "%' )";
         }
 
-        $this->db->where($where);
+        $this->db->where('is_featured', 1);
 		$query = $this->db->get($this->table_name);
 
 		return $query->num_rows();
@@ -71,7 +71,7 @@ class Model_user extends MY_Model {
         	$where .= "(" . $field . " LIKE '%" . $q . "%' )";
         }
 
-        $this->db->where($where);
+        $this->db->where('is_featured', 1);
         $this->db->limit($limit, $offset);
         $this->sortable();
 		$query = $this->db->get($this->table_name);

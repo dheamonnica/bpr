@@ -111,7 +111,7 @@
                                     ];
                                     ?>
 
-                                    <?php foreach (db_get_all_data('artikel', $conditions) as $row): ?>
+                                    <?php foreach (db_get_all_data('aauth_users', $conditions) as $row): ?>
                                     <option value="<?= $row->id ?>"><?= $row->judul_artikel; ?></option>
                                     <?php endforeach; ?>
                                 </select>

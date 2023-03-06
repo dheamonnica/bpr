@@ -60,11 +60,11 @@
             <input class="form-control" placeholder="Full Name" name="full_name" value="<?= set_value('full_name'); ?>">
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
           </div>
-          <!-- <div class="form-group has-feedback <?= form_error('username') ? 'has-error' : ''; ?>">
+          <div class="form-group has-feedback <?= form_error('username') ? 'has-error' : ''; ?>">
             <label>Username <span class="required">*</span> </label>
             <input class="form-control" placeholder="Username" name="username" value="<?= set_value('username'); ?>">
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
-          </div> -->
+          </div>
           <div class="form-group has-feedback <?= form_error('email') ? 'has-error' : ''; ?>">
             <label>Email <span class="required">*</span> </label>
             <input type="email" class="form-control" placeholder="Email" name="email"
