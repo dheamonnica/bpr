@@ -78,6 +78,18 @@
             </div>
         </div>
 
+        <div class="form-group group-jaminan ">
+            <label for="jaminan" class="col-sm-2 control-label">Jaminan <i class="required">*</i>
+            </label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="jaminan" id="jaminan" placeholder="Jangka Waktu"
+                    value="<?= set_value('jaminan'); ?>">
+
+            </div>
+        </div>
+
+        
+
 
         <div class="form-group group-jenis_pinjaman ">
             <label for="jenis_pinjaman" class="col-sm-2 control-label">Jenis Pinjaman <i class="required">*</i>
@@ -92,13 +104,7 @@
         </div>
 
 
-        <div class="form-group group-jaminan ">
-            <label for="jaminan" class="col-sm-2 control-label">Jaminan </label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" name="jaminan" id="jaminan" placeholder="Jaminan"
-                    value="<?= set_value('jaminan'); ?>">
-            </div>
-        </div>
+        
 
         <div class="message"></div>
 
@@ -256,9 +262,7 @@
                         data: data_post,
                     })
                         .done(function (res) {
-                            var x = document.getElementById("snackbar");
-                            x.className = "show";
-                            setTimeout(function () { x.className = x.className.replace("show", ""); }, 9000);
+                            
                             $('form').find('.form-group').removeClass('has-error');
                             $('.steps li').removeClass('error');
                             $('form').find('.error-input').remove();
@@ -279,6 +283,9 @@
                                     $('#pengajuan_kredit_file_ktp_galery').fineUploader('deleteFile', id_file_ktp);
                                 }
                                 $('.chosen option').prop('selected', false).trigger('chosen:updated');
+                                var x = document.getElementById("snackbar");
+                            x.className = "show";
+                            setTimeout(function () { x.className = x.className.replace("show", ""); }, 9000);
 
                             } else {
                                 if (res.errors) {

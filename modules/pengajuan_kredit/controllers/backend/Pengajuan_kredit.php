@@ -117,6 +117,7 @@ class Pengajuan_kredit extends Admin
 		
 
 		$this->form_validation->set_rules('jenis_pinjaman', 'Jenis Pinjaman', 'trim|required|max_length[50]');
+		$this->form_validation->set_rules('jaminan', 'Jaminan', 'trim|required|max_length[50]');
 		
 
 		
@@ -255,6 +256,8 @@ class Pengajuan_kredit extends Admin
 		
 
 		$this->form_validation->set_rules('jenis_pinjaman', 'Jenis Pinjaman', 'trim|required|max_length[50]');
+		$this->form_validation->set_rules('jaminan', 'Jaminan', 'trim|required|max_length[50]');
+
 		
 
 		
