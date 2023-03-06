@@ -11,7 +11,7 @@
                 </h2>
                 <hr class="hrcenter">
                 <p>
-                    <img src="<?= BASE_URL . 'asset/img/so.png'?>" width="100%" class="p-5"/>
+                    <img src="<?= BASE_URL . 'asset/img/so.png' ?>" width="100%" class="p-5" />
                 </p>
                 <br>
             </div>
@@ -41,27 +41,63 @@
                 </div>
             <?php endforeach; ?>
 
+            <h3 class="text-center">Data Pegawai</h3>
+            <hr class="hrcenter">
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Jabatan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $no = 1; foreach ($pegawais as $pegawai):
+                        ?>
+                        <tr>
+                            <th scope="row">
+                                <?= $no++ ?>
+                            </th>
+                            <td>
+                                <?= $pegawai->nama ?>
+                            </td>
+                            <td>
+                                <?= $pegawai->jabatan ?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+
 
             <h3 class="text-center">Sejarah Perusahaan</h3>
             <hr class="hrcenter">
-            <section class="timeline">
+            <section class="timeline p-5">
                 <?php foreach ($sejarahs as $sejarah): ?>
-                <div class="column">
-                    <div class="row">
-                        <div class="text">
-                            <h3><?= $sejarah->judul_sejarah ?></h3>
-                            <p><?= $sejarah->deskripsi_sejarah ?></p>
-                        </div>
-                        <div class="icon">
-                            <div>
-                                <i class="bi bi-patch-check-fill"></i>
+                    <div class="column">
+                        <div class="row">
+                            <div class="text">
+                                <h3>
+                                    <?= $sejarah->judul_sejarah ?>
+                                </h3>
+                                <p>
+                                    <?= $sejarah->deskripsi_sejarah ?>
+                                </p>
+                            </div>
+                            <div class="icon">
+                                <div>
+                                    <i class="bi bi-patch-check-fill"></i>
+                                </div>
+                            </div>
+                            <div class="time">
+                                <time>
+                                    <?= $sejarah->date ?>
+                                </time>
                             </div>
                         </div>
-                        <div class="time">
-                            <time><?= $sejarah->date ?></time>
-                        </div>
                     </div>
-                </div>
                 <?php endforeach; ?>
             </section>
         </div>

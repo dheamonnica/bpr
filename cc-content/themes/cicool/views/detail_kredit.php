@@ -22,8 +22,13 @@
                                     <?= $kredit->deskripsi_kredit ?>
                                 </p>
 
-                                <a href="<?= BASE_URL . 'web/ajukan_kredit' ?>"><button class="btn btn-success">Ajukan
-                                        Kredit </button></a>
+                                <?php if (app()->aauth->is_loggedin()): ?>
+                                    <a href="<?= BASE_URL . 'web/ajukan_kredit' ?>"><button class="btn btn-success">Ajukan
+                                            Kredit </button></a>
+                                <?php else: ?>
+                                    <div class="bg-danger" style="padding: 10px;">Mohon login untuk dapat mengajukan kredit</div>
+                                <?php endif; ?>
+
 
                             </div>
                         </div>

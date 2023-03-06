@@ -114,6 +114,11 @@ class Model_pegawai extends MY_Model {
         return $this;
     }
 
+    public function get_by_featured() {
+        $query = $this->db->query("SELECT * FROM `pegawai`  WHERE pegawai.is_featured = 'yes'");
+        return $query->result();
+    }
+
 }
 
 /* End of file Model_pegawai.php */
