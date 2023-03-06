@@ -27,34 +27,35 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <!-- <?php foreach (get_menu('top-menu') as $menu): ?>
-                        <?php if (app()->aauth->is_allowed('menu_' . $menu->label)):
-                            ?>
-                                <li>
-                                    <a style="padding: 15px;" class="page-scroll" href="<?= site_url(replace_admin_url($menu->link)); ?>"><?= $menu->label; ?></a>
-                                </li>
-                        <?php endif ?>
-                <?php endforeach; ?> -->
                 <li>
-                    <a style="padding: 15px;" class="page-scroll" href="<?= BASE_URL ?>">Beranda</a>
+                    <a style="padding: 15px;"
+                        class="page-scroll <?php echo base_url(uri_string()) === BASE_URL . '' ? 'active' : '' ?>"
+                        href="<?= BASE_URL ?>">Beranda</a>
                 </li>
                 <li>
-                    <a style="padding: 15px;" class="page-scroll" href="<?= BASE_URL . 'web/profil'?>">Profil</a>
+                    <a style="padding: 15px;"
+                        class="page-scroll <?php echo base_url(uri_string()) === BASE_URL . 'web/profil' ? 'active' : '' ?>"
+                        href="<?= BASE_URL . 'web/profil' ?>">Profil</a>
                 </li>
                 <li>
-                    <a style="padding: 15px;" class="page-scroll" href="<?= BASE_URL . 'web/produk'?>">Produk</a>
+                    <a style="padding: 15px;" class="page-scroll <?php echo base_url(uri_string()) === BASE_URL . 'web/produk' ? 'active' : ''?>"
+                        href="<?= BASE_URL . 'web/produk' ?>">Produk</a>
                 </li>
                 <li>
-                    <a style="padding: 15px;" class="page-scroll" href="<?= BASE_URL . 'web/dokumentasi'?>">Dokumentasi</a>
+                    <a style="padding: 15px;" class="page-scroll <?php echo base_url(uri_string()) === BASE_URL . 'web/dokumentasi' ? 'active' : ''?>"
+                        href="<?= BASE_URL . 'web/dokumentasi' ?>">Dokumentasi</a>
                 </li>
                 <li>
-                    <a style="padding: 15px;" class="page-scroll" href="<?= BASE_URL . 'blog'?>">Blog Artikel</a>
+                    <a style="padding: 15px;" class="page-scroll <?php echo base_url(uri_string()) === BASE_URL . 'blog' ? 'active' : ''?>"
+                        href="<?= BASE_URL . 'blog' ?>">Blog Artikel</a>
                 </li>
                 <li>
-                    <a style="padding: 15px;" class="page-scroll" href="<?= BASE_URL . 'web/faq'?>">FAQ</a>
+                    <a style="padding: 15px;" class="page-scroll <?php echo base_url(uri_string()) === BASE_URL . 'web/faq' ? 'active' : ''?>"
+                        href="<?= BASE_URL . 'web/faq' ?>">FAQ</a>
                 </li>
                 <li>
-                    <a style="padding: 15px;" class="page-scroll" href="<?= BASE_URL . 'web/kritik'?>">Kritik dan Saran</a>
+                    <a style="padding: 15px;" class="page-scroll <?php echo base_url(uri_string()) === BASE_URL . 'web/kritik' ? 'active' : ''?>"
+                        href="<?= BASE_URL . 'web/kritik' ?>">Kritik dan Saran</a>
                 </li>
                 <?php if (!app()->aauth->is_loggedin()): ?>
                     <li>
