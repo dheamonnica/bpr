@@ -66,14 +66,14 @@
                 <img src="<?= BASE_URL . 'uploads/artikel/' . $blog->photo; ?>" class="image-responsive"
                   alt="image artikel" title="photo artikel" width="100%">
               </div>
-              <div class="col-lg-9">
+              <div class="col-lg-9" style="min-height: 300px;">
                 <a href="<?= site_url('web/detail_blog/' . $blog->id) ?>">
                   <h4>
                     <?= substr($blog->judul_artikel, 0, 50) ?>
                   </h4>
-                  <!-- <h3 class="post-subtitle">
+                  <p class="post-subtitle">
                     <?= substr(strip_tags($blog->isi_artikel), 0, 100) ?>
-                  </h3> -->
+                  </p>
                 </a>
               </div>
             </div>
