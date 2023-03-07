@@ -40,14 +40,15 @@
           <div class="row-fluid">
             <div class="nav-tabs-custom">
               <ul class="nav nav-tabs">
+              <?php if(get_user_data('id') == 2 ): ?>
                 <li class="<?= empty($this->input->get('tab')) ? 'active' : '' ?>"><a href="#tab_general" class="tab_group" data-toggle="tab"><i class="fa fa-compass text-green"></i> <?= cclang('site_general'); ?></a></li>
-
+              <?php else: ?>
                 <li><a href="#tab_oauth" class="tab_group" data-toggle="tab"><i class="fa fa-chrome text-green"></i> Oauth</a></li>
 
                 <li><a href="#tab_system" class="tab_group" data-toggle="tab"><i class="fa fa-tv text-green"></i> <?= cclang('system'); ?></a></li>
 
                 <?= cicool()->renderTabSetting() ?>
-
+              <?php endif; ?>
               </ul>
               <?= form_open(ADMIN_NAMESPACE_URL . '/setting/save', [
                 'name'    => 'form_setting',
@@ -95,6 +96,7 @@
                         <small class="info help-block">The call center 2 number.</small>
                       </div>
 
+                      <?php if(get_user_data('id') == 1 ): ?>
                       <div class="col-sm-12">
                         <label><?= cclang('default_landing_page'); ?> <span class="required">*</span></label>
                         <div class="row">
@@ -210,11 +212,12 @@
 
                         </small>
                       </div>
+                      <?php endif; ?>
 
                     </div>
                   </div>
                 </div>
-
+                
                 <div class="tab-pane " id="tab_system">
                   <div class="row">
                     <div class="col-md-12">
