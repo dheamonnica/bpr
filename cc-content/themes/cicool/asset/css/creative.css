@@ -1040,8 +1040,6 @@ div.phpdebugbar-header, .phpdebugbar-restore-btn {
 }
 
 .image-responsive:hover {
-  border: 1px solid #7b9d6f;
-  /* padding: 10px */
   opacity: 1;
 }
 
