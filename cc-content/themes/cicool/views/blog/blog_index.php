@@ -62,11 +62,11 @@
         <?php foreach ($blogs as $blog): ?>
           <div class="post-preview">
             <div class="rows">
-              <div class="col-lg-3">
+              <div class="col-lg-4">
                 <img src="<?= BASE_URL . 'uploads/artikel/' . $blog->photo; ?>" class="image-responsive"
                   alt="image artikel" title="photo artikel" width="100%">
               </div>
-              <div class="col-lg-9" style="min-height: 300px;">
+              <div class="col-lg-8" style="min-height: 250px;">
                 <a href="<?= site_url('web/detail_blog/' . $blog->id) ?>">
                   <h4>
                     <?= substr($blog->judul_artikel, 0, 50) ?>
