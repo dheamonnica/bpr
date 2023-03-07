@@ -70,7 +70,7 @@
                                 <label for="nama_lengkap" class="col-sm-2 control-label">Nama Lengkap                                    <i class="required">*</i>
                                     </label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap" placeholder="" value="<?= set_value('nama_lengkap', $pengajuan_kredit->nama_lengkap); ?>">
+                                    <input readonly type="text" class="form-control" name="nama_lengkap" id="nama_lengkap" placeholder="" value="<?= set_value('nama_lengkap', $pengajuan_kredit->nama_lengkap); ?>">
                                     <small class="info help-block">
                                         <b>Input Nama Lengkap</b> Max Length : 250.</small>
                                 </div>
@@ -83,11 +83,16 @@
                                 <label for="file_ktp" class="col-sm-2 control-label">File Ktp                                    <i class="required">*</i>
                                     </label>
                                 <div class="col-sm-8">
+                                    <div style="display: none;">
                                     <div id="pengajuan_kredit_file_ktp_galery"></div>
-                                    <input class="data_file data_file_uuid" name="pengajuan_kredit_file_ktp_uuid" id="pengajuan_kredit_file_ktp_uuid" type="hidden" value="<?= set_value('pengajuan_kredit_file_ktp_uuid'); ?>">
+                                    <input  class="data_file data_file_uuid" name="pengajuan_kredit_file_ktp_uuid" id="pengajuan_kredit_file_ktp_uuid" type="hidden" value="<?= set_value('pengajuan_kredit_file_ktp_uuid'); ?>">
                                     <input class="data_file" name="pengajuan_kredit_file_ktp_name" id="pengajuan_kredit_file_ktp_name" type="hidden" value="<?= set_value('pengajuan_kredit_file_ktp_name', $pengajuan_kredit->file_ktp); ?>">
                                     <small class="info help-block">
                                         </small>
+                                    </div>
+                                   
+                                        <img src="<?= BASE_URL . 'uploads/pengajuan_kredit/' . $pengajuan_kredit->file_ktp; ?>" class="image-responsive"
+                     alt="image pengajuan_kredit" title="photo pengajuan_kredit">
                                 </div>
                             </div>
                         
@@ -98,7 +103,7 @@
                                 <label for="no_hp" class="col-sm-2 control-label">No Hp                                    <i class="required">*</i>
                                     </label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="" value="<?= set_value('no_hp', $pengajuan_kredit->no_hp); ?>">
+                                    <input readonly type="text" class="form-control" name="no_hp" id="no_hp" placeholder="" value="<?= set_value('no_hp', $pengajuan_kredit->no_hp); ?>">
                                     <small class="info help-block">
                                         <b>Input No Hp</b> Max Length : 12.</small>
                                 </div>
@@ -111,7 +116,7 @@
                                 <label for="jumlah_pinjaman" class="col-sm-2 control-label">Jumlah Pinjaman                                    <i class="required">*</i>
                                     </label>
                                 <div class="col-sm-8">
-                                    <input type="number" class="form-control" name="jumlah_pinjaman" id="jumlah_pinjaman" placeholder="" value="<?= set_value('jumlah_pinjaman', $pengajuan_kredit->jumlah_pinjaman); ?>">
+                                    <input readonly type="number" class="form-control" name="jumlah_pinjaman" id="jumlah_pinjaman" placeholder="" value="<?= set_value('jumlah_pinjaman', $pengajuan_kredit->jumlah_pinjaman); ?>">
                                     <small class="info help-block">
                                         <b>Input Jumlah Pinjaman</b> Max Length : 15.</small>
                                 </div>
@@ -124,7 +129,7 @@
                                 <label for="jangka_waktu" class="col-sm-2 control-label">Jangka Waktu                                    <i class="required">*</i>
                                     </label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="jangka_waktu" id="jangka_waktu" placeholder="" value="<?= set_value('jangka_waktu', $pengajuan_kredit->jangka_waktu); ?>">
+                                    <input readonly type="text" class="form-control" name="jangka_waktu" id="jangka_waktu" placeholder="" value="<?= set_value('jangka_waktu', $pengajuan_kredit->jangka_waktu); ?>">
                                     <small class="info help-block">
                                         <b>Input Jangka Waktu</b> Max Length : 50.</small>
                                 </div>
@@ -134,10 +139,10 @@
                                                     
                         
                         <div class="form-group group-jenis_pinjaman  ">
-                                <label for="jenis_pinjaman" class="col-sm-2 control-label">Jenis Pinjaman                                    <i class="required">*</i>
+                                <label readonly for="jenis_pinjaman" class="col-sm-2 control-label">Jenis Pinjaman                                    <i class="required">*</i>
                                     </label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="jenis_pinjaman" id="jenis_pinjaman" placeholder="" value="<?= set_value('jenis_pinjaman', $pengajuan_kredit->jenis_pinjaman); ?>">
+                                    <input readonly type="text" class="form-control" name="jenis_pinjaman" id="jenis_pinjaman" placeholder="" value="<?= set_value('jenis_pinjaman', $pengajuan_kredit->jenis_pinjaman); ?>">
                                     <small class="info help-block">
                                         <b>Input Jenis Pinjaman</b> Max Length : 50.</small>
                                 </div>
@@ -149,7 +154,18 @@
                         <div class="form-group group-jaminan  ">
                                 <label for="jaminan" class="col-sm-2 control-label">Jaminan                                    </label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="jaminan" id="jaminan" placeholder="" value="<?= set_value('jaminan', $pengajuan_kredit->jaminan); ?>">
+                                    <input readonly type="text" class="form-control" name="jaminan" id="jaminan" placeholder="" value="<?= set_value('jaminan', $pengajuan_kredit->jaminan); ?>">
+                                    <small class="info help-block">
+                                        </small>
+                                </div>
+                            </div>
+
+                                 <div class="form-group group-username  ">
+                                <label for="username" class="col-sm-2 control-label">Username                                   </label>
+                                <div class="col-sm-6">
+                                    <div class="input-group date col-sm-8">
+                                        <input readonly type="text" class="form-control pull-right" name="username" placeholder="" id="username" value="<?= set_value('username', $pengajuan_kredit->username); ?>">
+                                    </div>
                                     <small class="info help-block">
                                         </small>
                                 </div>

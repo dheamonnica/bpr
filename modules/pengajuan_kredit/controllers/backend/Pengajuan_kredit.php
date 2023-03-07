@@ -298,15 +298,21 @@ class Pengajuan_kredit extends Admin
 				'jaminan' => $this->input->post('jaminan'),
 				'updated_at' => $this->input->post('updated_at'),
 				'updated_by' => get_user_data('username'),
+				'username' => $this->input->post('username'),
 				'status' => $this->input->post('status'),
 			];
 
-			
+			$data = [
+				'title' => $this->input->post('status') === 'ditolak' ? 'Maaf pengajuan kredit anda ditolak, silahkan hubungi customer service untuk penjelasan detail' : 'Selamat pengajuan kredit anda berhasil, hubungi customer service untuk keterangan lebih lanjut.',
+				'content' => '-',
+				'url' => '#',
+				'read' => 0,
+				'username' => $this->input->post('username'),
+				'created_at' => $this->input->post('updated_at'),
+			];
 
-			
+			$this->db->insert('notification', $data);
 
-
-			
 			if (!is_dir(FCPATH . '/uploads/pengajuan_kredit/')) {
 				mkdir(FCPATH . '/uploads/pengajuan_kredit/');
 			}

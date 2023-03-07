@@ -45,7 +45,7 @@ jQuery(document).ready(domo);
                   <div class="widget-user-header ">
                      <div class="row pull-right">
                         <?php is_allowed('pengajuan_kredit_add', function(){?>
-                        <a class="btn btn-flat btn-success btn_add_new" id="btn_add_new" title="<?= cclang('add_new_button', [cclang('pengajuan_kredit')]); ?>  (Ctrl+a)" href="<?=  site_url('administrator/pengajuan_kredit/add'); ?>"><i class="fa fa-plus-square-o" ></i> <?= cclang('add_new_button', [cclang('pengajuan_kredit')]); ?></a>
+                        <!-- <a class="btn btn-flat btn-success btn_add_new" id="btn_add_new" title="<?= cclang('add_new_button', [cclang('pengajuan_kredit')]); ?>  (Ctrl+a)" href="<?=  site_url('administrator/pengajuan_kredit/add'); ?>"><i class="fa fa-plus-square-o" ></i> <?= cclang('add_new_button', [cclang('pengajuan_kredit')]); ?></a> -->
                         <?php }) ?>
                         <!-- <?php is_allowed('pengajuan_kredit_export', function(){?>
                         <a class="btn btn-flat btn-success" title="<?= cclang('export'); ?> <?= cclang('pengajuan_kredit') ?> " href="<?= site_url('administrator/pengajuan_kredit/export?q='.$this->input->get('q').'&f='.$this->input->get('f')); ?>"><i class="fa fa-file-excel-o" ></i> <?= cclang('export'); ?> XLS</a>

@@ -165,6 +165,74 @@
             </ul>
           </div>
         <?php endif ?>
+
+        <?php app()->load->model('user/model_user');
+        $count_notification = app()->model_user->count_notification($this->aauth->get_user()->username);;
+        // $total = app()->model_user->count_notification(null, 'read', 0);
+        ?>
+
+        <?php if ($this->aauth->get_user()->is_featured == 1): ?>
+            <div class="navbar-custom-menu">
+              <ul class="nav navbar-nav">
+                <li class="dropdown notifications-menu">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-bell-o"></i>
+                    <span
+                      style="<?= COUNT($count_notification) == 0 ? 'background: #ccc !important; color#fff !important;' : '' ?>"
+                      class="label label-<?= COUNT($count_notification) > 0 ? 'warning' : '' ?>">
+                      <?= COUNT($count_notification) ?>
+                    </span>
+                  </a>
+                  <ul class="dropdown-menu">
+
+                    <li class="header">
+                      <?= COUNT($count_notification) ?> Notification
+                    </li>
+                    <li>
+                      <ul class="menu">
+                        <?php foreach ($count_notification as $notif): ?>
+                        <li>
+                          <a href="#" 
+                          data-page="<?= base_url('/administrator/pengajuan_kredit/user') ?>"
+                            data-id="<?= $notif->id ?>"
+                            class="<?= $notif->read == 0 ? 'unread-notification' : '' ?>"
+                            id="mark-all-as-read-button">
+                            <i class="fa fa-circle-o text-aqua"></i>
+                            <?= $notif->title ?>
+                          </a>
+                        </li>
+                        <?php endforeach ?>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+                <script>
+                  $(document).on('click', 'a.notif-detail', function (event) {
+                    event.preventDefault();
+
+                    $('#modalAlert').modal('show')
+                    $.ajax({
+                      url: BASE_URL + 'administrator/devices/get_alert_detail',
+                      type: 'GET',
+                      dataType: 'JSON',
+                      data: {
+                        event_id: $(this).data('id')
+                      },
+                    })
+                      .done(function (res) {
+                        if (res.status) {
+                          $('#modalAlert .modal-body').html(res.view);
+                        }
+                      })
+                      .fail(function () { })
+                      .always(function () { });
+
+                  });
+                </script>
+            </div>
+            <?php endif ?>
+
       </nav>
     </header>
 
