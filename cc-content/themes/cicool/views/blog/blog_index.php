@@ -68,12 +68,12 @@
               </div>
               <div class="col-lg-9">
                 <a href="<?= site_url('web/detail_blog/' . $blog->id) ?>">
-                  <h2 class="post-title">
+                  <h4>
                     <?= substr($blog->judul_artikel, 0, 50) ?>
-                  </h2>
-                  <h3 class="post-subtitle">
+                  </h4>
+                  <!-- <h3 class="post-subtitle">
                     <?= substr(strip_tags($blog->isi_artikel), 0, 100) ?>
-                  </h3>
+                  </h3> -->
                 </a>
               </div>
             </div>
