@@ -91,7 +91,7 @@
                         </div>
                     
 
-    <div class="form-group group-updated_by ">
+    <!-- <div class="form-group group-updated_by ">
                             <label for="updated_by" class="col-sm-2 control-label">Updated By                                </label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" name="updated_by" id="updated_by" placeholder="Updated By" value="<?= set_value('updated_by'); ?>">
@@ -99,7 +99,7 @@
                                     </small>
                             </div>
                         </div>
-                    
+                     -->
 
     <div class="form-group group-username ">
                             <label for="username" class="col-sm-2 control-label">Username                                </label>
@@ -108,11 +108,12 @@
                                     <option value=""></option>
                                     <?php
                                     $conditions = [
+                                        'is_featured' => 1
                                     ];
                                     ?>
 
                                     <?php foreach (db_get_all_data('aauth_users', $conditions) as $row): ?>
-                                    <option value="<?= $row->id ?>"><?= $row->judul_artikel; ?></option>
+                                    <option value="<?= $row->username ?>"><?= $row->username; ?></option>
                                     <?php endforeach; ?>
                                 </select>
                                 <small class="info help-block">

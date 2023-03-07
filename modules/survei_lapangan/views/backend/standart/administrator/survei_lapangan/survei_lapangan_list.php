@@ -137,9 +137,10 @@ jQuery(document).ready(domo);
                            <td><span class="list_group-situasi_jaminan"><?= _ent($survei_lapangan->situasi_jaminan); ?></span></td> 
                            <td><span class="list_group-updated_by"><?= _ent($survei_lapangan->updated_by); ?></span></td> 
                            <td><span class="list_group-created_at"><?= _ent($survei_lapangan->created_at); ?></span></td> 
-                           <td><?php if  ($survei_lapangan->username) {
+                           <td><span class="list_group-created_at"><?= _ent($survei_lapangan->username); ?></span></td> 
+                           <!-- <td><?php if  ($survei_lapangan->username) {
 
-                              echo anchor('administrator/artikel/view/'.$survei_lapangan->username.'?popup=show', $survei_lapangan->artikel_judul_artikel, ['class' => 'popup-view']); }?> </td>
+                              echo anchor('administrator/artikel/view/'.$survei_lapangan->username.'?popup=show', $survei_lapangan->artikel_judul_artikel, ['class' => 'popup-view']); }?> </td> -->
                              
                            <td width="200">
                             

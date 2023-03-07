@@ -97,6 +97,7 @@ class Survei_lapangan extends Admin
 				'situasi_jaminan' => $this->input->post('situasi_jaminan'),
 				'updated_by' => $this->input->post('updated_by'),
 				'created_at' => date('Y-m-d H:i:s'),
+				'updated_by' => $this->aauth->get_user()->username,
 				'username' => $this->input->post('username'),
 			];
 
@@ -196,7 +197,7 @@ class Survei_lapangan extends Admin
 				'jaminan_kredit' => $this->input->post('jaminan_kredit'),
 				'lokasi_jaminan' => $this->input->post('lokasi_jaminan'),
 				'situasi_jaminan' => $this->input->post('situasi_jaminan'),
-				'updated_by' => $this->input->post('updated_by'),
+				'updated_by' => $this->aauth->get_user()->username,
 				'created_at' => date('Y-m-d H:i:s'),
 				'username' => $this->input->post('username'),
 			];
