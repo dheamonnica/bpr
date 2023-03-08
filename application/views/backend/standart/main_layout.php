@@ -8,7 +8,11 @@
   <meta name="keywords" content="<?= get_option('keywords'); ?>">
   <meta name="author" content="<?= get_option('author'); ?>">
 
-  <title><?= get_user_first_group()->name ?> | <?= get_option('site_name'); ?> | <?= $template['title']; ?></title>
+  <title>
+    <?= get_user_first_group()->name ?> |
+    <?= get_option('site_name'); ?> |
+    <?= $template['title']; ?>
+  </title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
   <link rel="stylesheet" href="<?= BASE_ASSET ?>admin-lte/bootstrap/css/bootstrap.min.css">
@@ -67,9 +71,9 @@
       include(APPPATH . 'language/' . get_cookie('language') . '/irrigation_lang.php');
     }
     foreach ($lang as $key => $value) {
-    ?>
+      ?>
       _lang['<?= $key ?>'] = `<?= $value ?>`;
-    <?php
+      <?php
     }
     ?>
 
@@ -78,7 +82,7 @@
       navbarMenuSlimscroll: false,
     };
 
-    $(document).ready(function() {
+    $(document).ready(function () {
 
       toastr.options = {
         "positionClass": "toast-top-center",
@@ -103,7 +107,7 @@
 
     <header class="main-header">
       <?php
-      $logo =  get_option('logo');
+      $logo = get_option('logo');
       if ($logo) {
         $logo = 'uploads/setting/' . get_option('logo');
       } else {
@@ -124,22 +128,100 @@
           <span class="sr-only">Toggle navigation</span>
         </a>
 
-        <?php if ($this->aauth->get_user()) : ?>
+        <?php app()->load->model('user/model_user');
+        $count_notification = app()->model_user->count_notification($this->aauth->get_user()->username);
+        $notification = app()->model_user->notification($this->aauth->get_user()->username);
+        ?>
+
+        <?php if ($this->aauth->get_user()->is_featured == 1): ?>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <li class="dropdown notifications-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-bell-o"></i>
+                  <span
+                    style="<?= COUNT($count_notification) == 0 ? 'background: #ccc !important; color#fff !important;' : '' ?>"
+                    class="label label-<?= COUNT($count_notification) > 0 ? 'warning' : '' ?>">
+                    <?= COUNT($count_notification) ?>
+                  </span>
+                </a>
+                <ul class="dropdown-menu">
+
+                  <!-- <li class="header">
+                    <?= COUNT($count_notification) ?> Notification
+                  </li> -->
+                  <li>
+                    <ul class="menu">
+                      <?php foreach ($notification as $notif): ?>
+                        <li>
+                          <a href="#" data-page="<?= base_url('/administrator/pengajuan_kredit/user') ?>"
+                            data-username="<?= $notif->username ?>"
+                            data-id="<?= $notif->id ?>" class="<?= $notif->read == 0 ? 'unread-notification' : '' ?>"
+                            id="mark-all-as-read-button">
+                            <i class="fa fa-circle-o text-aqua"></i>
+                            <?= $notif->title ?>
+                          </a>
+                        </li>
+                      <?php endforeach ?>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+              <script type="text/javascript">
+                var csrf = '<?= $this->security->get_csrf_token_name(); ?>';
+                var token = '<?= $this->security->get_csrf_hash(); ?>';
+                var notif = document.getElementById('mark-all-as-read-button');
+                var id = notif.getAttribute('data-id');
+                var username = notif.getAttribute('data-username');
+                var page = notif.getAttribute('data-page');
+                $(document).ready(function () {
+                  $('body').on('click', '#mark-all-as-read-button', function (e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+
+                    $.ajax({
+                      url: '<?= BASE_URL ?>' + "web/set_notification_status_as_read/" + username,
+                      type: 'post',
+                      dataType: 'json',
+                      data: {
+                        '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>',
+                      },
+                      complete: function () {
+                        $(".unread-notification").removeClass("unread-notification");
+                        window.location.href = page
+                      }
+                    });
+                  });
+                });
+              </script>
+          </div>
+        <?php endif ?>
+
+        <?php if ($this->aauth->get_user()): ?>
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
 
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="<?= BASE_URL . 'uploads/user/' . (!empty(get_user_data('avatar')) ? get_user_data('avatar') : 'default.png'); ?>" class="user-image" alt="User Image">
-                  <span class="hidden-xs"><?= _ent(ucwords(clean_snake_case(get_user_data('full_name')))); ?></span>
+                  <img
+                    src="<?= BASE_URL . 'uploads/user/' . (!empty(get_user_data('avatar')) ? get_user_data('avatar') : 'default.png'); ?>"
+                    class="user-image" alt="User Image">
+                  <span class="hidden-xs">
+                    <?= _ent(ucwords(clean_snake_case(get_user_data('full_name')))); ?>
+                  </span>
                 </a>
                 <ul class="dropdown-menu">
                   <li class="user-header">
-                    <img src="<?= BASE_URL . 'uploads/user/' . (!empty(get_user_data('avatar')) ? get_user_data('avatar') : 'default.png'); ?>" class="img-circle" alt="User Image">
+                    <img
+                      src="<?= BASE_URL . 'uploads/user/' . (!empty(get_user_data('avatar')) ? get_user_data('avatar') : 'default.png'); ?>"
+                      class="img-circle" alt="User Image">
 
                     <p>
                       <?= _ent(ucwords(clean_snake_case($this->aauth->get_user()->full_name))); ?>
-                      <small>Last Login, <?= date('Y-M-D', strtotime(get_user_data('last_login'))); ?></small>
+                      <small>Last Login,
+                        <?= date('Y-M-D', strtotime(get_user_data('last_login'))); ?>
+                      </small>
                     </p>
                   </li>
 
@@ -157,94 +239,27 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                   <span class="flag-icon <?= get_current_initial_lang(); ?>"></span> <?= get_current_lang(); ?> </a>
                 <ul class="dropdown-menu" role="menu">
-                  <?php foreach (get_langs() as $lang) : ?>
+                    <?php foreach (get_langs() as $lang): ?>
                     <li><a href="<?= site_url('web/switch_lang/' . $lang['folder_name']); ?>"><span class="flag-icon <?= $lang['icon_name']; ?>"></span> <?= $lang['name']; ?></a></li>
-                  <?php endforeach; ?>
+                    <?php endforeach; ?>
                 </ul>
               </li> -->
             </ul>
           </div>
         <?php endif ?>
 
-        <?php app()->load->model('user/model_user');
-        $count_notification = app()->model_user->count_notification($this->aauth->get_user()->username);;
-        // $total = app()->model_user->count_notification(null, 'read', 0);
-        ?>
-
-        <?php if ($this->aauth->get_user()->is_featured == 1): ?>
-            <div class="navbar-custom-menu">
-              <ul class="nav navbar-nav">
-                <li class="dropdown notifications-menu">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-bell-o"></i>
-                    <span
-                      style="<?= COUNT($count_notification) == 0 ? 'background: #ccc !important; color#fff !important;' : '' ?>"
-                      class="label label-<?= COUNT($count_notification) > 0 ? 'warning' : '' ?>">
-                      <?= COUNT($count_notification) ?>
-                    </span>
-                  </a>
-                  <ul class="dropdown-menu">
-
-                    <li class="header">
-                      <?= COUNT($count_notification) ?> Notification
-                    </li>
-                    <li>
-                      <ul class="menu">
-                        <?php foreach ($count_notification as $notif): ?>
-                        <li>
-                          <a href="#" 
-                          data-page="<?= base_url('/administrator/pengajuan_kredit/user') ?>"
-                            data-id="<?= $notif->id ?>"
-                            class="<?= $notif->read == 0 ? 'unread-notification' : '' ?>"
-                            id="mark-all-as-read-button">
-                            <i class="fa fa-circle-o text-aqua"></i>
-                            <?= $notif->title ?>
-                          </a>
-                        </li>
-                        <?php endforeach ?>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-
-                <script>
-                  $(document).on('click', 'a.notif-detail', function (event) {
-                    event.preventDefault();
-
-                    $('#modalAlert').modal('show')
-                    $.ajax({
-                      url: BASE_URL + 'administrator/devices/get_alert_detail',
-                      type: 'GET',
-                      dataType: 'JSON',
-                      data: {
-                        event_id: $(this).data('id')
-                      },
-                    })
-                      .done(function (res) {
-                        if (res.status) {
-                          $('#modalAlert .modal-body').html(res.view);
-                        }
-                      })
-                      .fail(function () { })
-                      .always(function () { });
-
-                  });
-                </script>
-            </div>
-            <?php endif ?>
-
       </nav>
     </header>
 
-    <?php if(get_user_data('is_featured') == 0): ?>
-    <aside class="main-sidebar">
-      <section class="sidebar sidebar-admin">
-        <ul class="sidebar-menu  sidebar-admin tree" data-widget="tree">
-          <?= display_menu_admin(0, 1); ?>
-        </ul>
-      </section>
-    </aside>
-    <!-- <?php endif; ?> -->
+    <?php if (get_user_data('is_featured') == 0): ?>
+      <aside class="main-sidebar">
+        <section class="sidebar sidebar-admin">
+          <ul class="sidebar-menu  sidebar-admin tree" data-widget="tree">
+            <?= display_menu_admin(0, 1); ?>
+          </ul>
+        </section>
+      </aside>
+      <!-- <?php endif; ?> -->
 
     <div class="content-wrapper">
       <?php cicool()->eventListen('backend_content_top'); ?>

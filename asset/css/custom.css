@@ -2050,3 +2050,16 @@ table .table-field-item:first-child .btn-remove-field {
 .container-button-bottom {
     padding-left: 30px;
 }
+
+.unread-notification {
+    background-color: #edeff5 !important;
+}
+
+.navbar-custom-menu > .navbar-nav > li > .dropdown-menu {
+    position: absolute;
+    right: 0% !important;
+    left: auto;
+    border: 1px solid #ddd;
+    background: #fff;
+    width: 50vw;
+}

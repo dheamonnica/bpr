@@ -105,8 +105,18 @@ class Model_user extends MY_Model {
 	}
 
 	public function count_notification($username) {
+        $query = $this->db->query("SELECT * FROM `notification`  WHERE notification.username = '".$username."'". " AND notification.read = 0");
+        return $query->result();
+    }
+
+	public function notification($username) {
         $query = $this->db->query("SELECT * FROM `notification`  WHERE notification.username = '".$username."'");
         return $query->result();
+    }
+
+	public function set_notification_status_as_readss($username) {
+		$query = $this->db->query("UPDATE `notification` SET `read` = 1 WHERE notification.username = '".$username."'");
+        return $this->db->query($query);
     }
 
 }

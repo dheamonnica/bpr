@@ -25,6 +25,7 @@ class Web extends Front
         $this->load->model('kredit/model_kredit');
         $this->load->model('slider/model_slider');
         $this->load->model('pegawai/model_pegawai');
+        $this->load->model('user/model_user');
     }
 
     public function index()
@@ -114,6 +115,10 @@ class Web extends Front
         $this->data['produks'] = $this->model_produk->get();
         $this->data['kredits'] = $this->model_kredit->get();
         $this->template->build('produk', $this->data);
+    }
+
+    public function set_notification_status_as_read($username) {
+        $this->model_user->set_notification_status_as_readss($username);
     }
 
     public function dokumentasi()
