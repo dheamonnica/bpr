@@ -28,7 +28,7 @@ class Pengajuan_kredit extends Admin
 	 */
 	public function index($offset = 0)
 	{
-		$this->is_allowed('pengajuan_kredit_list');
+		// $this->is_allowed('pengajuan_kredit_list');
 
 		$filter = $this->input->get('q');
 		$field = $this->input->get('f');
