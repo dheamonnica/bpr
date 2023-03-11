@@ -46,6 +46,7 @@ jQuery(document).ready(domo);
                      <div class="row pull-right">
                         <?php is_allowed('simulasi_kredit_add', function(){?>
                         <a class="btn btn-flat btn-success btn_add_new" id="btn_add_new" title="<?= cclang('add_new_button', [cclang('simulasi_kredit')]); ?>  (Ctrl+a)" href="<?=  site_url('administrator/simulasi_kredit/add'); ?>"><i class="fa fa-plus-square-o" ></i> <?= cclang('add_new_button', [cclang('simulasi_kredit')]); ?></a>
+                        <a class="btn btn-flat btn-success btn_add_new" id="btn_add_new" title="<?= cclang('add_new_button', [cclang('simulasi_kredit')]); ?>  (Ctrl+a)" href="<?=  site_url('administrator/simulasi_kredit/add_import'); ?>"><i class="fa fa-plus-square-o" ></i> Import</a>
                         <?php }) ?>
                         <!-- <?php is_allowed('simulasi_kredit_export', function(){?>
                         <a class="btn btn-flat btn-success" title="<?= cclang('export'); ?> <?= cclang('simulasi_kredit') ?> " href="<?= site_url('administrator/simulasi_kredit/export?q='.$this->input->get('q').'&f='.$this->input->get('f')); ?>"><i class="fa fa-file-excel-o" ></i> <?= cclang('export'); ?> XLS</a>
@@ -137,13 +138,13 @@ jQuery(document).ready(domo);
                            </td>
                                                        
                            <td><span class="list_group-plafond"><?= _ent($simulasi_kredit->plafond); ?></span></td> 
-                           <td><span class="list_group-jangkawaktu_12"><?= _ent($simulasi_kredit->jangkawaktu_12); ?></span></td> 
-                           <td><span class="list_group-jangkawaktu_18"><?= _ent($simulasi_kredit->jangkawaktu_18); ?></span></td> 
-                           <td><span class="list_group-jangkawaktu_24"><?= _ent($simulasi_kredit->jangkawaktu_24); ?></span></td> 
-                           <td><span class="list_group-jangkawaktu_30"><?= _ent($simulasi_kredit->jangkawaktu_30); ?></span></td> 
-                           <td><span class="list_group-jangkawaktu_36"><?= _ent($simulasi_kredit->jangkawaktu_36); ?></span></td> 
-                           <td><span class="list_group-jangkawaktu_48"><?= _ent($simulasi_kredit->jangkawaktu_48); ?></span></td> 
-                           <td><span class="list_group-jangkawaktu_60"><?= _ent($simulasi_kredit->jangkawaktu_60); ?></span></td> 
+                           <td><span class="list_group-jangkawaktu_12"><?= number_format($simulasi_kredit->jangkawaktu_12, 0, '.', '.') ?> ?></span></td> 
+                           <td><span class="list_group-jangkawaktu_18"><?= number_format($simulasi_kredit->jangkawaktu_18, 0, '.', '.') ?></span></td> 
+                           <td><span class="list_group-jangkawaktu_24"><?= number_format($simulasi_kredit->jangkawaktu_24, 0, '.', '.') ?></span></td> 
+                           <td><span class="list_group-jangkawaktu_30"><?= number_format($simulasi_kredit->jangkawaktu_30, 0, '.', '.') ?></span></td> 
+                           <td><span class="list_group-jangkawaktu_36"><?= number_format($simulasi_kredit->jangkawaktu_36, 0, '.', '.') ?></span></td> 
+                           <td><span class="list_group-jangkawaktu_48"><?= number_format($simulasi_kredit->jangkawaktu_48, 0, '.', '.') ?></span></td> 
+                           <td><span class="list_group-jangkawaktu_60"><?= number_format($simulasi_kredit->jangkawaktu_60, 0, '.', '.') ?></span></td> 
                            <td width="200">
                             
                                                               <?php is_allowed('simulasi_kredit_view', function() use ($simulasi_kredit){?>

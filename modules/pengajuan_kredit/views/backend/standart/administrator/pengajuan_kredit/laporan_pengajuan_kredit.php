@@ -134,7 +134,7 @@ jQuery(document).ready(domo);
                            </td>
                                                        
                            <td><span class="list_group-nama_lengkap"><?= _ent($pengajuan_kredit->nama_lengkap); ?></span></td> 
-                           <td><span class="list_group-jumlah_pinjaman"><?= _ent($pengajuan_kredit->jumlah_pinjaman); ?></span></td> 
+                           <td><span class="list_group-jumlah_pinjaman"><?= number_format($pengajuan_kredit->jumlah_pinjaman, 0, '.', '.') ?> ?></span></td> 
                            <td><span class="list_group-jangka_waktu"><?= _ent($pengajuan_kredit->jangka_waktu); ?></span></td> 
                            <td><span class="list_group-jenis_pinjaman"><?= _ent($pengajuan_kredit->jenis_pinjaman); ?></span></td> 
                            <td><span class="list_group-jaminan"><?= _ent($pengajuan_kredit->jaminan); ?></span></td> 

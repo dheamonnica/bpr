@@ -33,38 +33,39 @@
 		<div class="col-md-12">
 			<div class="box box-warning">
 				<div class="box-body ">
-				<form name="form_pengajuan_kredit" id="form_pengajuan_kredit" action="<?= base_url('administrator/dashboard/index'); ?>">
-					<!-- /.widget-user -->
-					<div class="row" style="padding-bottom: 10px">
-						<div class="col-md-8">
-							<div class="col-sm-3 padd-left-0  ">
-								Start Date :
-								<input type="date" class="form-control" name="startdate" id="filter"
-									placeholder="<?= cclang('filter'); ?>" value="<?= $default_awal; ?>">
-							</div>
-							<div class="col-sm-3 padd-left-0  ">
-								End Date :
-								<input type="date" class="form-control" name="enddate" id="filter"
-									placeholder="<?= cclang('filter'); ?>" value="<?= $default_akhir ?>">
+					<form name="form_pengajuan_kredit" id="form_pengajuan_kredit"
+						action="<?= base_url('administrator/dashboard/index'); ?>">
+						<!-- /.widget-user -->
+						<div class="row" style="padding-bottom: 10px">
+							<div class="col-md-8">
+								<div class="col-sm-3 padd-left-0  ">
+									Start Date :
+									<input type="date" class="form-control" name="startdate" id="filter"
+										placeholder="<?= cclang('filter'); ?>" value="<?= $default_awal; ?>">
+								</div>
+								<div class="col-sm-3 padd-left-0  ">
+									End Date :
+									<input type="date" class="form-control" name="enddate" id="filter"
+										placeholder="<?= cclang('filter'); ?>" value="<?= $default_akhir ?>">
+								</div>
+
+								<div class="col-sm-1 padd-left-0" style="padding-top: 20px">
+									<button type="submit" class="btn btn-flat" name="sbtn" id="sbtn" value="Apply"
+										title="<?= cclang('filter_search'); ?>">
+										Filter
+									</button>
+								</div>
+								<div class="col-sm-1 padd-left-0" style="padding-top: 20px">
+									<a class="btn btn-default btn-flat" name="reset" id="reset" value="Apply"
+										href="<?= base_url('administrator/dashboard'); ?>"
+										title="<?= cclang('reset_filter'); ?>">
+										<i class="fa fa-undo"></i>
+									</a>
+								</div>
 							</div>
 
-							<div class="col-sm-1 padd-left-0" style="padding-top: 20px">
-								<button type="submit" class="btn btn-flat" name="sbtn" id="sbtn" value="Apply"
-									title="<?= cclang('filter_search'); ?>">
-									Filter
-								</button>
-							</div>
-							<div class="col-sm-1 padd-left-0" style="padding-top: 20px">
-								<a class="btn btn-default btn-flat" name="reset" id="reset" value="Apply"
-									href="<?= base_url('administrator/dashboard'); ?>"
-									title="<?= cclang('reset_filter'); ?>">
-									<i class="fa fa-undo"></i>
-								</a>
-							</div>
 						</div>
-
-					</div>
-					</form> 
+					</form>
 					<div id="main" style="width:99%;height: 500px;"></div>
 				</div>
 			</div>
@@ -115,8 +116,8 @@ https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js
 			{
 				type: 'category',
 				data: [
-					<?php foreach($datas as $data): ?>
-						'<?= date("d/m/Y",strtotime($data->created_at))	?>'
+					<?php foreach ($datas as $data): ?>
+							'<?= date("d/m/Y", strtotime($data->created_at)) ?>'
 					<?php endforeach; ?>
 
 				],
@@ -133,13 +134,14 @@ https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js
 				type: 'value'
 			}
 		],
+
 		series: [
 			{
 				name: 'jumlah',
 				type: 'bar',
 				data: [
-					<?php foreach($datas as $data): ?>
-						'<?= $data->jumlah ?>'
+					<?php foreach ($datas as $data): ?>
+							'<?= $data->jumlah ?>'
 					<?php endforeach; ?>
 				],
 				label: {
@@ -147,9 +149,10 @@ https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js
 					position: 'top',
 					color: "black",
 					fontSize: 12,
-					formatter: function (d) {
-						return 'Rp' + d.data ;
-					}
+					formatter: function (params) {
+						var val = format(params.value);
+						return val;
+					},
 				},
 
 			},
@@ -158,6 +161,10 @@ https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js
 
 	option && myChart.setOption(option);
 
+	function format(data) {
+		data = parseFloat(data);
+		return data.toLocaleString('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0, maximumFractionDigits: 0});
+	}
 </script>
 
 
