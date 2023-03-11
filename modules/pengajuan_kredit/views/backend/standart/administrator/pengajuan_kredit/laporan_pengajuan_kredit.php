@@ -122,7 +122,7 @@ jQuery(document).ready(domo);
                            <th data-field="jumlah_pinjaman"data-sort="1" data-primary-key="0"> <?= cclang('jumlah_pinjaman') ?></th>
                            <th data-field="jangka_waktu"data-sort="1" data-primary-key="0"> <?= cclang('jangka_waktu') ?></th>
                            <th data-field="jenis_pinjaman"data-sort="1" data-primary-key="0"> <?= cclang('jenis_pinjaman') ?></th>
-                           <th data-field="jaminan"data-sort="1" data-primary-key="0"> <?= cclang('jaminan') ?></th>
+                           <!-- <th data-field="jaminan"data-sort="1" data-primary-key="0"> <?= cclang('jaminan') ?></th> -->
                            <th data-field="created_at"data-sort="1" data-primary-key="0"> <?= cclang('created_at') ?></th>
                                                    </tr>
                      </thead>
@@ -134,10 +134,10 @@ jQuery(document).ready(domo);
                            </td>
                                                        
                            <td><span class="list_group-nama_lengkap"><?= _ent($pengajuan_kredit->nama_lengkap); ?></span></td> 
-                           <td><span class="list_group-jumlah_pinjaman"><?= number_format($pengajuan_kredit->jumlah_pinjaman, 0, '.', '.') ?> ?></span></td> 
+                           <td><span class="list_group-jumlah_pinjaman"><?= number_format($pengajuan_kredit->jumlah_pinjaman, 0, '.', '.') ?></span></td> 
                            <td><span class="list_group-jangka_waktu"><?= _ent($pengajuan_kredit->jangka_waktu); ?></span></td> 
                            <td><span class="list_group-jenis_pinjaman"><?= _ent($pengajuan_kredit->jenis_pinjaman); ?></span></td> 
-                           <td><span class="list_group-jaminan"><?= _ent($pengajuan_kredit->jaminan); ?></span></td> 
+                           <!-- <td><span class="list_group-jaminan"><?= _ent($pengajuan_kredit->jaminan); ?></span></td>  -->
                            <td><span class="list_group-created_at"><?= _ent($pengajuan_kredit->created_at); ?></span></td> 
 </tr>
                       <?php endforeach; ?>
