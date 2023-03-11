@@ -64,9 +64,20 @@
                         $user_groups = $this->model_group->get_user_group_ids();
                         ?>
 
+<div class="form-group group-username  ">
+                                <label for="username" class="col-sm-2 control-label">Username                                   </label>
+                                <div class="col-sm-6">
+                                    <div class="input-group date col-sm-8">
+                                        <input readonly type="text" class="form-control pull-right" name="username" placeholder="" id="username" value="<?= set_value('username', $pengajuan_kredit->username); ?>">
+                                    </div>
+                                    <small class="info help-block">
+                                        </small>
+                                </div>
+                            </div>
+
                                                     
                         
-                        <div class="form-group group-nama_lengkap  ">
+                        <!-- <div class="form-group group-nama_lengkap  ">
                                 <label for="nama_lengkap" class="col-sm-2 control-label">Nama Lengkap                                    <i class="required">*</i>
                                     </label>
                                 <div class="col-sm-8">
@@ -170,7 +181,7 @@
                                         </small>
                                 </div>
                             </div>
-                        
+                         -->
                         
                                                     
                         

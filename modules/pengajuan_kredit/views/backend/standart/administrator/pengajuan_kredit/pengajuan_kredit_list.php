@@ -123,12 +123,12 @@ jQuery(document).ready(domo);
                             <input type="checkbox" class="flat-red toltip" id="check_all" name="check_all" title="check all">
                            </th>
                                                     <th data-field="nama_lengkap"data-sort="1" data-primary-key="0"> <?= cclang('nama_lengkap') ?></th>
-                           <th data-field="file_ktp"data-sort="0" data-primary-key="0"> <?= cclang('file_ktp') ?></th>
+                           <!-- <th data-field="file_ktp"data-sort="0" data-primary-key="0"> <?= cclang('file_ktp') ?></th> -->
                            <th data-field="no_hp"data-sort="1" data-primary-key="0"> <?= cclang('no_hp') ?></th>
                            <th data-field="jumlah_pinjaman"data-sort="1" data-primary-key="0"> <?= cclang('jumlah_pinjaman') ?></th>
                            <th data-field="jangka_waktu"data-sort="1" data-primary-key="0"> <?= cclang('jangka_waktu') ?></th>
                            <th data-field="jenis_pinjaman"data-sort="1" data-primary-key="0"> <?= cclang('jenis_pinjaman') ?></th>
-                           <th data-field="jaminan"data-sort="1" data-primary-key="0"> <?= cclang('jaminan') ?></th>
+                           <!-- <th data-field="jaminan"data-sort="1" data-primary-key="0"> <?= cclang('jaminan') ?></th> -->
                            <th data-field="created_at"data-sort="1" data-primary-key="0"> <?= cclang('created_at') ?></th>
                            <th data-field="updated_at"data-sort="1" data-primary-key="0"> <?= cclang('updated_at') ?></th>
                            <th data-field="updated_by"data-sort="1" data-primary-key="0"> <?= cclang('updated_by') ?></th>
@@ -143,7 +143,7 @@ jQuery(document).ready(domo);
                            </td>
                                                        
                            <td><span class="list_group-nama_lengkap"><?= _ent($pengajuan_kredit->nama_lengkap); ?></span></td> 
-                           <td>
+                           <!-- <td>
                               <?php if (!empty($pengajuan_kredit->file_ktp)): ?>
                                 <?php if (is_image($pengajuan_kredit->file_ktp)): ?>
                                 <a class="fancybox" rel="group" href="<?= BASE_URL . 'uploads/pengajuan_kredit/' . $pengajuan_kredit->file_ktp; ?>">
@@ -155,13 +155,13 @@ jQuery(document).ready(domo);
                                  </a>
                                 <?php endif; ?>
                               <?php endif; ?>
-                           </td>
+                           </td> -->
                             
                            <td><span class="list_group-no_hp"><?= _ent($pengajuan_kredit->no_hp); ?></span></td> 
                            <td><span class="list_group-jumlah_pinjaman"><?= number_format($pengajuan_kredit->jumlah_pinjaman, 0, '.', '.') ?></span></td> 
                            <td><span class="list_group-jangka_waktu"><?= _ent($pengajuan_kredit->jangka_waktu); ?></span></td> 
                            <td><span class="list_group-jenis_pinjaman"><?= _ent($pengajuan_kredit->jenis_pinjaman); ?></span></td> 
-                           <td><span class="list_group-jaminan"><?= _ent($pengajuan_kredit->jaminan); ?></span></td> 
+                           <!-- <td><span class="list_group-jaminan"><?= _ent($pengajuan_kredit->jaminan); ?></span></td>  -->
                            <td><span class="list_group-created_at"><?= _ent($pengajuan_kredit->created_at); ?></span></td> 
                            <td><span class="list_group-updated_at"><?= _ent($pengajuan_kredit->updated_at); ?></span></td> 
                            <td><span class="list_group-updated_by"><?= _ent($pengajuan_kredit->updated_by); ?></span></td> 

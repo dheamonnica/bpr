@@ -184,8 +184,8 @@ class Pengajuan_kredit extends Admin
 			];
 
 
-			if (!is_dir(FCPATH . '/uploads/pengajuan_kredit/ktp')) {
-				mkdir(FCPATH . '/uploads/pengajuan_kredit/ktp');
+			if (!is_dir(FCPATH . '/uploads/pengajuan_kredit')) {
+				mkdir(FCPATH . '/uploads/pengajuan_kredit');
 			}
 
 			if (!empty($pengajuan_kredit_file_ktp_name)) {
@@ -207,9 +207,9 @@ class Pengajuan_kredit extends Admin
 				$save_data['file_ktp'] = $pengajuan_kredit_file_ktp_name_copy;
 			}
 
-			if (!is_dir(FCPATH . '/uploads/pengajuan_kredit/sku')) {
-				mkdir(FCPATH . '/uploads/pengajuan_kredit/sku');
-			}
+			// if (!is_dir(FCPATH . '/uploads/pengajuan_kredit/sku')) {
+			// 	mkdir(FCPATH . '/uploads/pengajuan_kredit/sku');
+			// }
 
 			if (!empty($pengajuan_kredit_file_sku_name)) {
 				$pengajuan_kredit_file_sku_name_copy = date('YmdHis') . '-' . $pengajuan_kredit_file_sku_name;
@@ -230,9 +230,9 @@ class Pengajuan_kredit extends Admin
 				$save_data['file_sku'] = $pengajuan_kredit_file_sku_name_copy;
 			}
 
-			if (!is_dir(FCPATH . '/uploads/pengajuan_kredit/skp')) {
-				mkdir(FCPATH . '/uploads/pengajuan_kredit/skp');
-			}
+			// if (!is_dir(FCPATH . '/uploads/pengajuan_kredit/skp')) {
+			// 	mkdir(FCPATH . '/uploads/pengajuan_kredit/skp');
+			// }
 
 			if (!empty($pengajuan_kredit_file_skp_name)) {
 				$pengajuan_kredit_file_skp_name_copy = date('YmdHis') . '-' . $pengajuan_kredit_file_skp_name;
@@ -253,9 +253,9 @@ class Pengajuan_kredit extends Admin
 				$save_data['file_skp'] = $pengajuan_kredit_file_skp_name_copy;
 			}
 
-			if (!is_dir(FCPATH . '/uploads/pengajuan_kredit/photo')) {
-				mkdir(FCPATH . '/uploads/pengajuan_kredit/photo');
-			}
+			// if (!is_dir(FCPATH . '/uploads/pengajuan_kredit/photo')) {
+			// 	mkdir(FCPATH . '/uploads/pengajuan_kredit/photo');
+			// }
 
 			if (!empty($pengajuan_kredit_file_photo_name)) {
 				$pengajuan_kredit_file_photo_name_copy = date('YmdHis') . '-' . $pengajuan_kredit_file_photo_name;
@@ -273,12 +273,12 @@ class Pengajuan_kredit extends Admin
 					exit;
 				}
 
-				$save_data['file_photo'] = $pengajuan_kredit_file_sku_name_copy;
+				$save_data['file_photo'] = $pengajuan_kredit_file_photo_name_copy;
 			}
 
-			if (!is_dir(FCPATH . '/uploads/pengajuan_kredit/ktp_istri')) {
-				mkdir(FCPATH . '/uploads/pengajuan_kredit/ktp_istri');
-			}
+			// if (!is_dir(FCPATH . '/uploads/pengajuan_kredit/ktp_istri')) {
+			// 	mkdir(FCPATH . '/uploads/pengajuan_kredit/ktp_istri');
+			// }
 
 			if (!empty($pengajuan_kredit_file_ktp_istri_name)) {
 				$pengajuan_kredit_file_ktp_istri_name_copy = date('YmdHis') . '-' . $pengajuan_kredit_file_ktp_istri_name;
@@ -299,9 +299,9 @@ class Pengajuan_kredit extends Admin
 				$save_data['file_ktp_istri'] = $pengajuan_kredit_file_ktp_istri_name_copy;
 			}
 
-			if (!is_dir(FCPATH . '/uploads/pengajuan_kredit/kk')) {
-				mkdir(FCPATH . '/uploads/pengajuan_kredit/kk');
-			}
+			// if (!is_dir(FCPATH . '/uploads/pengajuan_kredit/kk')) {
+			// 	mkdir(FCPATH . '/uploads/pengajuan_kredit/kk');
+			// }
 
 			if (!empty($pengajuan_kredit_file_kk_name)) {
 				$pengajuan_kredit_file_kk_name_copy = date('YmdHis') . '-' . $pengajuan_kredit_file_kk_name;
@@ -322,9 +322,9 @@ class Pengajuan_kredit extends Admin
 				$save_data['file_kk'] = $pengajuan_kredit_file_kk_name_copy;
 			}
 
-			if (!is_dir(FCPATH . '/uploads/pengajuan_kredit/sn')) {
-				mkdir(FCPATH . '/uploads/pengajuan_kredit/sn');
-			}
+			// if (!is_dir(FCPATH . '/uploads/pengajuan_kredit/sn')) {
+			// 	mkdir(FCPATH . '/uploads/pengajuan_kredit/sn');
+			// }
 
 			if (!empty($pengajuan_kredit_file_surat_nikah_name)) {
 				$pengajuan_kredit_file_surat_nikah_name_copy = date('YmdHis') . '-' . $pengajuan_kredit_file_surat_nikah_name;
@@ -345,9 +345,9 @@ class Pengajuan_kredit extends Admin
 				$save_data['file_surat_nikah'] = $pengajuan_kredit_file_surat_nikah_name_copy;
 			}
 
-			if (!is_dir(FCPATH . '/uploads/pengajuan_kredit/jaminan')) {
-				mkdir(FCPATH . '/uploads/pengajuan_kredit/jaminan');
-			}
+			// if (!is_dir(FCPATH . '/uploads/pengajuan_kredit/jaminan')) {
+			// 	mkdir(FCPATH . '/uploads/pengajuan_kredit/jaminan');
+			// }
 
 			if (!empty($pengajuan_kredit_file_jaminan_name)) {
 				$pengajuan_kredit_file_jaminan_name_copy = date('YmdHis') . '-' . $pengajuan_kredit_file_jaminan_name;
@@ -365,12 +365,12 @@ class Pengajuan_kredit extends Admin
 					exit;
 				}
 
-				$save_data['file_jaminan'] = $pengajuan_kredit_file_sku_name_copy;
+				$save_data['file_jaminan'] = $pengajuan_kredit_file_jaminan_name_copy;
 			}
 
-			if (!is_dir(FCPATH . '/uploads/pengajuan_kredit/rl')) {
-				mkdir(FCPATH . '/uploads/pengajuan_kredit/rl');
-			}
+			// if (!is_dir(FCPATH . '/uploads/pengajuan_kredit/rl')) {
+			// 	mkdir(FCPATH . '/uploads/pengajuan_kredit/rl');
+			// }
 
 			if (!empty($pengajuan_kredit_file_rekening_listrik_name)) {
 				$pengajuan_kredit_file_rekening_listrik_name_copy = date('YmdHis') . '-' . $pengajuan_kredit_file_rekening_listrik_name;
@@ -391,9 +391,9 @@ class Pengajuan_kredit extends Admin
 				$save_data['file_rekening_listrik'] = $pengajuan_kredit_file_rekening_listrik_name_copy;
 			}
 
-			if (!is_dir(FCPATH . '/uploads/pengajuan_kredit/pbb')) {
-				mkdir(FCPATH . '/uploads/pengajuan_kredit/pbb');
-			}
+			// if (!is_dir(FCPATH . '/uploads/pengajuan_kredit/pbb')) {
+			// 	mkdir(FCPATH . '/uploads/pengajuan_kredit/pbb');
+			// }
 
 			if (!empty($pengajuan_kredit_file_pbb_stnk_name)) {
 				$pengajuan_kredit_file_pbb_stnk_name_copy = date('YmdHis') . '-' . $pengajuan_kredit_file_pbb_stnk_name;
@@ -490,38 +490,39 @@ class Pengajuan_kredit extends Admin
 			]);
 			exit;
 		}
-		$this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'trim|required|max_length[250]');
+		// $this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'trim|required|max_length[250]');
 
 
-		$this->form_validation->set_rules('pengajuan_kredit_file_ktp_name', 'File Ktp', 'trim|required');
+		// $this->form_validation->set_rules('pengajuan_kredit_file_ktp_name', 'File Ktp', 'trim|required');
 
 
-		$this->form_validation->set_rules('no_hp', 'No Hp', 'trim|required|max_length[12]');
+		// $this->form_validation->set_rules('no_hp', 'No Hp', 'trim|required|max_length[12]');
 
 
-		$this->form_validation->set_rules('jumlah_pinjaman', 'Jumlah Pinjaman', 'trim|required|max_length[15]');
+		// $this->form_validation->set_rules('jumlah_pinjaman', 'Jumlah Pinjaman', 'trim|required|max_length[15]');
 
 
-		$this->form_validation->set_rules('jangka_waktu', 'Jangka Waktu', 'trim|required|max_length[50]');
+		// $this->form_validation->set_rules('jangka_waktu', 'Jangka Waktu', 'trim|required|max_length[50]');
 
 
-		$this->form_validation->set_rules('jenis_pinjaman', 'Jenis Pinjaman', 'trim|required|max_length[50]');
-		$this->form_validation->set_rules('jaminan', 'Jaminan', 'trim|required|max_length[50]');
+		// $this->form_validation->set_rules('jenis_pinjaman', 'Jenis Pinjaman', 'trim|required|max_length[50]');
+		// $this->form_validation->set_rules('jaminan', 'Jaminan', 'trim|required|max_length[50]');
+		$this->form_validation->set_rules('status', 'Status', 'trim|required|max_length[50]');
 
 
 
 
 		if ($this->form_validation->run()) {
-			$pengajuan_kredit_file_ktp_uuid = $this->input->post('pengajuan_kredit_file_ktp_uuid');
-			$pengajuan_kredit_file_ktp_name = $this->input->post('pengajuan_kredit_file_ktp_name');
+			// $pengajuan_kredit_file_ktp_uuid = $this->input->post('pengajuan_kredit_file_ktp_uuid');
+			// $pengajuan_kredit_file_ktp_name = $this->input->post('pengajuan_kredit_file_ktp_name');
 
 			$save_data = [
-				'nama_lengkap' => $this->input->post('nama_lengkap'),
-				'no_hp' => $this->input->post('no_hp'),
-				'jumlah_pinjaman' => $this->input->post('jumlah_pinjaman'),
-				'jangka_waktu' => $this->input->post('jangka_waktu'),
-				'jenis_pinjaman' => $this->input->post('jenis_pinjaman'),
-				'jaminan' => $this->input->post('jaminan'),
+				// 'nama_lengkap' => $this->input->post('nama_lengkap'),
+				// 'no_hp' => $this->input->post('no_hp'),
+				// 'jumlah_pinjaman' => $this->input->post('jumlah_pinjaman'),
+				// 'jangka_waktu' => $this->input->post('jangka_waktu'),
+				// 'jenis_pinjaman' => $this->input->post('jenis_pinjaman'),
+				// 'jaminan' => $this->input->post('jaminan'),
 				'updated_at' => $this->input->post('updated_at'),
 				'updated_by' => get_user_data('username'),
 				'username' => $this->input->post('username'),
@@ -539,28 +540,28 @@ class Pengajuan_kredit extends Admin
 
 			$this->db->insert('notification', $data);
 
-			if (!is_dir(FCPATH . '/uploads/pengajuan_kredit/')) {
-				mkdir(FCPATH . '/uploads/pengajuan_kredit/');
-			}
+			// if (!is_dir(FCPATH . '/uploads/pengajuan_kredit/')) {
+			// 	mkdir(FCPATH . '/uploads/pengajuan_kredit/');
+			// }
 
-			if (!empty($pengajuan_kredit_file_ktp_uuid)) {
-				$pengajuan_kredit_file_ktp_name_copy = date('YmdHis') . '-' . $pengajuan_kredit_file_ktp_name;
+			// if (!empty($pengajuan_kredit_file_ktp_uuid)) {
+			// 	$pengajuan_kredit_file_ktp_name_copy = date('YmdHis') . '-' . $pengajuan_kredit_file_ktp_name;
 
-				rename(
-					FCPATH . 'uploads/tmp/' . $pengajuan_kredit_file_ktp_uuid . '/' . $pengajuan_kredit_file_ktp_name,
-					FCPATH . 'uploads/pengajuan_kredit/' . $pengajuan_kredit_file_ktp_name_copy
-				);
+			// 	rename(
+			// 		FCPATH . 'uploads/tmp/' . $pengajuan_kredit_file_ktp_uuid . '/' . $pengajuan_kredit_file_ktp_name,
+			// 		FCPATH . 'uploads/pengajuan_kredit/' . $pengajuan_kredit_file_ktp_name_copy
+			// 	);
 
-				if (!is_file(FCPATH . '/uploads/pengajuan_kredit/' . $pengajuan_kredit_file_ktp_name_copy)) {
-					echo json_encode([
-						'success' => false,
-						'message' => 'Error uploading file'
-					]);
-					exit;
-				}
+			// 	if (!is_file(FCPATH . '/uploads/pengajuan_kredit/' . $pengajuan_kredit_file_ktp_name_copy)) {
+			// 		echo json_encode([
+			// 			'success' => false,
+			// 			'message' => 'Error uploading file'
+			// 		]);
+			// 		exit;
+			// 	}
 
-				$save_data['file_ktp'] = $pengajuan_kredit_file_ktp_name_copy;
-			}
+			// 	$save_data['file_ktp'] = $pengajuan_kredit_file_ktp_name_copy;
+			// }
 
 
 			$save_pengajuan_kredit = $this->model_pengajuan_kredit->change($id, $save_data);
@@ -934,7 +935,7 @@ class Pengajuan_kredit extends Admin
 		echo $this->delete_file([
 			'uuid' => $uuid,
 			'delete_by' => $this->input->get('by'),
-			'field_name' => 'file_ktp',
+			'field_name' => 'file_photo',
 			'upload_path_tmp' => './uploads/tmp/',
 			'table_name' => 'pengajuan_kredit',
 			'primary_key' => 'id',
@@ -961,7 +962,7 @@ class Pengajuan_kredit extends Admin
 		echo $this->get_file([
 			'uuid' => $id,
 			'delete_by' => 'id',
-			'field_name' => 'file_ktp',
+			'field_name' => 'file_photo',
 			'table_name' => 'pengajuan_kredit',
 			'primary_key' => 'id',
 			'upload_path' => 'uploads/pengajuan_kredit/',

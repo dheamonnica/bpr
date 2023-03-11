@@ -343,9 +343,9 @@
                         dataType: 'json',
                         data: data_post,
                         success: function (response) {
-                            var x = document.getElementById("snackbar");
-                            x.className = "show";
-                            setTimeout(function () { x.className = x.className.replace("show", ""); }, 9000);
+                            // var x = document.getElementById("snackbar");
+                            // x.className = "show";
+                            // setTimeout(function () { x.className = x.className.replace("show", ""); }, 9000);
                         }
                     })
 
@@ -356,9 +356,9 @@
                             $('.steps li').removeClass('error');
                             $('form').find('.error-input').remove();
                             if (res.success) {
-                                // var x = document.getElementById("snackbar");
-                                // x.className = "show";
-                                // setTimeout(function () { x.className = x.className.replace("show", ""); }, 9000);
+                                var x = document.getElementById("snackbar");
+                                x.className = "show";
+                                setTimeout(function () { x.className = x.className.replace("show", ""); }, 9000);
                                 var id_file_ktp = $('#pengajuan_kredit_file_ktp_galery').find('li').attr('qq-file-id');
 
                                 if (save_type == 'back') {
@@ -376,7 +376,7 @@
                                 }
                                 $('.chosen option').prop('selected', false).trigger('chosen:updated');
 
-
+                                // location.reload();
                             } else {
                                 if (res.errors) {
 
