@@ -227,7 +227,9 @@
 
                   <li class="user-footer">
                     <div class="pull-left">
+                    <?php if (get_user_data('is_featured') == 0): ?>
                       <a href="<?= site_url('administrator/user/profile'); ?>" class="btn btn-default btn-flat"><?= cclang('profile'); ?></a>
+                    <?php endif ?>
                     </div>
                     <div class="pull-right">
                       <a href="<?= site_url('administrator/auth/logout'); ?>" class="btn btn-default btn-flat"><?= cclang('sign_out'); ?></a>

@@ -320,7 +320,7 @@ class User extends Admin
 	*/
 	public function profile()
 	{
-		$this->is_allowed('user_profile');
+		// $this->is_allowed('user_profile');
 
 		$this->data['user'] = $this->model_user->find($this->aauth->get_user()->id);
 
