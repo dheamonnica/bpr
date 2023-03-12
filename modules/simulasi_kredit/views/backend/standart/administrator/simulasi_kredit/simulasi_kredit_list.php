@@ -46,7 +46,7 @@ jQuery(document).ready(domo);
                      <div class="row pull-right">
                         <?php is_allowed('simulasi_kredit_add', function(){?>
                         <a class="btn btn-flat btn-success btn_add_new" id="btn_add_new" title="<?= cclang('add_new_button', [cclang('simulasi_kredit')]); ?>  (Ctrl+a)" href="<?=  site_url('administrator/simulasi_kredit/add'); ?>"><i class="fa fa-plus-square-o" ></i> <?= cclang('add_new_button', [cclang('simulasi_kredit')]); ?></a>
-                        <a class="btn btn-flat btn-success btn_add_new" id="btn_add_new" title="<?= cclang('add_new_button', [cclang('simulasi_kredit')]); ?>  (Ctrl+a)" href="<?=  site_url('administrator/simulasi_kredit/add_import'); ?>"><i class="fa fa-plus-square-o" ></i> Import</a>
+                        <a class="btn btn-flat btn-success btn_add_new" id="btn_add_new" title="<?= cclang('add_new_button', [cclang('simulasi_kredit')]); ?>  (Ctrl+a)" href="https://import-data.bpr.ideasprojects.my.id"><i class="fa fa-plus-square-o" ></i> Import</a>
                         <?php }) ?>
                         <!-- <?php is_allowed('simulasi_kredit_export', function(){?>
                         <a class="btn btn-flat btn-success" title="<?= cclang('export'); ?> <?= cclang('simulasi_kredit') ?> " href="<?= site_url('administrator/simulasi_kredit/export?q='.$this->input->get('q').'&f='.$this->input->get('f')); ?>"><i class="fa fa-file-excel-o" ></i> <?= cclang('export'); ?> XLS</a>
@@ -137,8 +137,8 @@ jQuery(document).ready(domo);
                               <input type="checkbox" class="flat-red check" name="id[]" value="<?= $simulasi_kredit->id; ?>">
                            </td>
                                                        
-                           <td><span class="list_group-plafond"><?= _ent($simulasi_kredit->plafond); ?></span></td> 
-                           <td><span class="list_group-jangkawaktu_12"><?= number_format($simulasi_kredit->jangkawaktu_12, 0, '.', '.') ?> ?></span></td> 
+                           <td><span class="list_group-plafond"><?= number_format($simulasi_kredit->plafond, 0, '.', '.')  ?></span></td> 
+                           <td><span class="list_group-jangkawaktu_12"><?= number_format($simulasi_kredit->jangkawaktu_12, 0, '.', '.') ?></span></td> 
                            <td><span class="list_group-jangkawaktu_18"><?= number_format($simulasi_kredit->jangkawaktu_18, 0, '.', '.') ?></span></td> 
                            <td><span class="list_group-jangkawaktu_24"><?= number_format($simulasi_kredit->jangkawaktu_24, 0, '.', '.') ?></span></td> 
                            <td><span class="list_group-jangkawaktu_30"><?= number_format($simulasi_kredit->jangkawaktu_30, 0, '.', '.') ?></span></td> 
