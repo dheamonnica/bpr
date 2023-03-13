@@ -26,6 +26,7 @@ class Web extends Front
         $this->load->model('slider/model_slider');
         $this->load->model('pegawai/model_pegawai');
         $this->load->model('user/model_user');
+        $this->load->model('simulasi_kredit/model_simulasi_kredit');
     }
 
     public function index()
@@ -97,6 +98,19 @@ class Web extends Front
         $this->template->build('detail_kredit', $this->data);
     }
 
+    public function simulasi_kredit()
+    {
+        $this->data['simulasi_kredits'] = $this->model_simulasi_kredit->get();
+        $this->template->build('simulasi_kredit', $this->data);
+    }
+
+    public function getKredit($plafond)
+    {
+        $query = $this->db->query("SELECT * FROM `simulasi_kredit` WHERE simulasi_kredit.plafond =" . $plafond . "");
+        $data = $query->result();
+        return $this->response($data);
+    }
+
     public function ajukan_kredit()
     {
         $this->template->build('form_kredit');
@@ -117,7 +131,8 @@ class Web extends Front
         $this->template->build('produk', $this->data);
     }
 
-    public function set_notification_status_as_read($username) {
+    public function set_notification_status_as_read($username)
+    {
         $this->model_user->set_notification_status_as_readss($username);
     }
 

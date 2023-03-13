@@ -42,6 +42,10 @@
                         href="<?= BASE_URL . 'web/produk' ?>">Produk</a>
                 </li>
                 <li>
+                    <a style="padding: 15px;" class="page-scroll <?php echo base_url(uri_string()) === BASE_URL . 'web/simulasi_kredit' ? 'active' : ''?>"
+                        href="<?= BASE_URL . 'web/simulasi_kredit' ?>">Simulasi Kredit</a>
+                </li>
+                <li>
                     <a style="padding: 15px;" class="page-scroll <?php echo base_url(uri_string()) === BASE_URL . 'web/dokumentasi' ? 'active' : ''?>"
                         href="<?= BASE_URL . 'web/dokumentasi' ?>">Dokumentasi</a>
                 </li>
