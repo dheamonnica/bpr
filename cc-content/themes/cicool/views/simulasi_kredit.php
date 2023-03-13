@@ -10,7 +10,7 @@
                     <hr class="hrcenter">
 
                     <form class="form-inline" style="padding: 5vh;">
-                        <div class="form-group">
+                        <div class="form-group" style="padding-bottom: 3vh;">
                             <label>Nominal Pinjaman : </label>
 
                             <select class="form-control chosen chosen-select-deselect " name="jumlah_pinjaman"
