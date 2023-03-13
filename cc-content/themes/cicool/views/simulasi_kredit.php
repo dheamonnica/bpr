@@ -8,7 +8,6 @@
                 <div>
                     <h1>Simulasi Kredit</h1>
                     <hr class="hrcenter">
-
                     <form class="form-inline" style="padding: 5vh;">
                         <div class="form-group" style="padding-bottom: 3vh;">
                             <label>Nominal Pinjaman : </label>
